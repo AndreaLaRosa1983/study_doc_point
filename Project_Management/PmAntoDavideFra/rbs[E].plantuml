@@ -1,0 +1,38 @@
+	
+@startwbs
+skinparam roundCorner 20
+<style>
+wbsDiagram {
+   LineColor lightgrey
+   arrow{
+    lineColor black
+   }
+   .powderBlue{
+      backgroundColor midnightBlue
+      fontColor white
+   }
+   .white{
+      backgroundColor white
+   }
+   .orange{
+      backgroundColor orange
+   }
+   
+}
+</style>
+* Vita Bucolica Web Application <<powderBlue>>
+** All User Services
+***< Iscrizione al sito
+****< Login/Logout al sito
+***< Ricerca articoli Tag & Parola Chiave
+*** CRUD commenti
+*** Visualizza Prodotti Boutique Contadina
+**** Ordina Prodotti Boutique Condadina
+** Expert User Services
+***< CRUD Articolo 
+** Administrator Command Console 
+***< Login privilegiato/Logout
+*** CRUD Moderazione Articoli
+*** CRUD Moderazione Commenti
+***< Ricevi/Visualizza/Conferma Ordini Boutique Contadina
+@endwbs
