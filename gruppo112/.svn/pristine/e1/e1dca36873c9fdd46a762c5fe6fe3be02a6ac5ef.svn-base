@@ -1,0 +1,11 @@
+Data inserimento: Mar 12, 2023
+
+Lista dei componenti: Andrea La Rosa 
+
+Proposta di progetto: “Realizzazione di un sistema di condivisione dati sanitari emergenziali internazionale, mediante l’utilizzo di piattaforme cloud based (AWS) e riconoscimento del paziente mediante tecnologia RFID e/o NFC ”
+[La tecnologia più appropriata per il "tag" tra RFID/NFC verrà determinata in corso d'opera]
+A titolo esemplificativo riporto il mio caso:
+Essendo portatore di una malattia cronica rara, che richiede cure molto specifiche ed immediate nel momento della fase acuta, se mi trovassi fuori dai confini europei, laddove non è presente un sistema di condivisione dati sanitari con l’Europa, la possibilità di avere un RFID/NFC che letto, mediante app. mobile e/o lettore RFID/NFC, rimandi a una mia storia sanitaria nel cloud, permetterebbe ad eventuali operatori sanitari di agire in modo tempestivo.
+Verrà anche valutato, l'inserimento di codici, scelti tra quelli riconosciuti internazionalmente, da inserire anche essi nell'RFID/NFC, sarà previsto l'eventuale funzionamento di tali codici (o un sottoinsieme significativo degli stessi) anche in caso di mancata copertura di rete. 
+
+Referente: Andrea La Rosa andrea.larosa2@studio.unibo.it

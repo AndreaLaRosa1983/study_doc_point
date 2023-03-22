@@ -1,0 +1,14 @@
+ID;FirstName;MiddleInitial;LastName;ValidityDate;MaritalStatus;EmailAddress;Address;City;State;Phone
+1;Abby;C;Malhotra;12/11/2000;M;amalhotra@thephone-company.com;1019 Carletto Drive;Sedro Woolley;WA;645-555-0181
+2;Abby;;Prasad;08/06/1952;S;aprasad@blueyonderairlines.com;3261 Vista Bonita;Concord;CA;
+3;Abby;;Srini;20/4/1961;M;asrini@adatum.com;9191 Camelback Ct.;Berkeley;CA;827-555-0177
+4;Abby;E;Rodriguez;05/05/1951;M;arodriguez@fabrikam.com;6753 Howard Hughes Parkway;Las Vegas;NV;1 (11) 500 555-0122
+5;Abigail;;Brown;03/05/1946;M;abrown@treyresearch.net;4710 Northridge Drive;Port Orchard;WA;155-555-0188
+6;Abigail;A;Watson;21/7/1972;S;awatson@thephone-company.com;8757 Keith Court;Seattle;WA;1 (11) 500 555-0193
+7;Abigail;C;Bryant;06/09/1977;M;abryant@northwindtraders.com;2639 Anchor Court;Edmonds;WA;
+8;Abigail;C;Hall;24/6/1972;S;ahall@northwindtraders.com;8036 Summit View Dr.;Gold Bar;WA;
+9;Abigail;;Davis;22/12/1955;S;adavis@fabrikam.com;70 N.w. Plaza;Saint Ann;MO;1 (11) 500 555-0187
+10;Abigail;E;Flores;27/1/1953;M;aflores@baldwinmuseumofscience.com;867 Maria Vega Court;Colma;CA;622-555-0116
+11;Abigail;;Gray;11/02/1968;M;agray@consolidatedmessenger;78025 E. Merritt Isl. Cswy.;Merritt Island;FL;440-555-0165
+12;Adam;;Alexander;07/02/1936;M;aalexander@lucernepublishing.com;566 S. Main;Cedar City;UT;516-555-0187
+17;Adrian;A;Rogers;08/10/1985;S;arogers@margiestravel.com;5543 Royal Arch Court;Burien;WA;1 (11) 500 555-0121

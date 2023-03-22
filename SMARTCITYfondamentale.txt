@@ -1,0 +1,4 @@
+user: larosaa
+pw: larosa
+
+(o invertiti) a un certo punto è partito con una combinazione di questo tipo senza spazi
