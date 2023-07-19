@@ -1,0 +1,50 @@
+@startuml CCC
+left to right direction
+skinparam actorStyle awesome
+skinparam actor {
+BorderColor DarkRed
+}
+
+skinparam usecase {
+BackgroundColor LightGoldenRodYellow
+BorderColor DarkRed
+ArrowColor DarkRed
+
+}
+
+!define SHADOW_COLOR #000000
+
+skinparam {
+  Shadowing true
+  ShadowColor SHADOW_COLOR
+}
+
+actor Utente as Utente 
+actor :Utente Medico: as Med 
+
+rectangle CloudCareConnect {
+	(Iscrizione) as iscrizione
+	(Ingresso) as ingresso
+	(Seleziona / Visualizza Condizione/i) as condizione
+	(Carica / Ricerca / Scarica) as azioni
+	(Concedi / Rimuovi Permesso) as permesso
+    (Lettura e Scrittura NFC) as azioni_utente_nfc
+    (Lettura NFC) as leggi_nfc
+    (Visualizza Condizione/i) as vedi_condizione
+    (Ricerca / Scarica Documento) as vedi_documento
+
+	azioni --> permesso
+
+    leggi_nfc --> vedi_condizione
+    leggi_nfc --> vedi_documento
+
+	Utente --> iscrizione
+    Utente --> ingresso
+    Utente --> condizione
+    Utente --> azioni_utente_nfc
+    Utente --> azioni
+	Med --> iscrizione
+	Med --> ingresso
+    Med --> leggi_nfc
+}
+@enduml
