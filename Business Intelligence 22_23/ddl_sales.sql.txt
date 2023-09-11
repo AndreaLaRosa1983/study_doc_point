@@ -1,0 +1,137 @@
+drop table if exists ft;
+drop table if exists dt_shipment;
+drop table if exists dt_order;
+drop table if exists dt_date;
+drop table if exists dt_customer;
+drop table if exists dt_supplier;
+drop table if exists dt_part;
+
+create table dt_part (
+	ID SERIAL,
+	PART VARCHAR(55), 
+	MFGR CHAR(25),
+	BRAND CHAR(10), 
+	TYPE VARCHAR(25), 
+	SIZE integer, 
+	CONTAINER CHAR(10), 
+	RETAILPRICE double precision,
+	PRIMARY KEY (ID)
+);
+
+create table dt_supplier (
+	ID SERIAL,
+	SUPPLIER CHAR(25), 
+	ADDRESS VARCHAR(40), 	
+	PHONE CHAR(15), 
+	ACCTBAL double precision,
+	NATION CHAR(25), 
+	REGION CHAR(25),
+	PRIMARY KEY (ID)
+);
+
+create table dt_customer (
+	ID SERIAL,
+	CUSTKEY integer, 
+	NAME VARCHAR(25), 
+	ADDRESS VARCHAR(40), 
+	PHONE CHAR(15), 
+	ACCTBAL double precision, 
+	MKTSEGMENT CHAR(10),
+	NATION CHAR(25), 
+	REGION CHAR(25),
+	PRIMARY KEY (ID)
+);
+
+create table dt_date (
+	ID SERIAL,
+	DATE DATE, 
+	MONTH char(10), 
+	YEAR integer, 
+	PRIMARY KEY (ID)
+);
+
+create table dt_order (
+	ID SERIAL,
+	ORDERKEY integer, 
+	ORDERSTATUS CHAR(1), 
+	TOTALPRICE double precision, 
+	ORDERPRIORITY CHAR(15), 
+	CLERK CHAR(15), 
+	SHIPPRIORITY integer, 
+	ID_DATE integer, 
+	ID_CUSTOMER integer, 
+	PRIMARY KEY (ID)
+	--,FOREIGN KEY (ID_DATE) REFERENCES DT_DATE (ID)
+	--,FOREIGN KEY (ID_CUSTOMER) REFERENCES DT_CUSTOMER (ID)
+);
+
+create table jdt_shipment (
+	ID SERIAL,
+	SHIPINSTRUCT CHAR(25), 
+	SHIPMODE CHAR(10),
+	PRIMARY KEY (ID)
+);
+
+create table ft (
+	QUANTITY double precision, 
+	EXTENDEDPRICE double precision, 
+	DISCOUNT double precision, 
+	TAX double precision, 
+	RETURNFLAG CHAR(1), 
+	LINESTATUS CHAR(1), 
+	ID_SHIPDATE integer, 
+	ID_COMMITDATE integer, 
+	ID_RECEIPTDATE integer,
+	ID_ORDER integer, 
+	ID_PART integer, 
+	ID_SUPPLIER integer,
+	ID_SHIPMENT integer, 
+	PRIMARY KEY (ID_ORDER, ID_PART, ID_SUPPLIER)
+	--,FOREIGN KEY (ID_ORDER) REFERENCES DT_ORDER (ID)
+	--,FOREIGN KEY (ID_PART) REFERENCES DT_PART (ID)
+	--,FOREIGN KEY (ID_SUPPLIER) REFERENCES DT_SUPPLIER (ID)
+	--,FOREIGN KEY (ID_SHIPDATE) REFERENCES DT_DATE (ID)
+	--,FOREIGN KEY (ID_COMMITDATE) REFERENCES DT_DATE (ID)
+	--,FOREIGN KEY (ID_RECEIPTDATE) REFERENCES DT_DATE (ID)
+	--,FOREIGN KEY (ID_SHIPMENT) REFERENCES JDT_SHIPMENT (ID)
+);
+
+
+
+
+create table hash_dt_part (
+	partkey integer primary key,
+	id serial
+);
+
+create table hash_dt_supplier (
+	suppkey integer primary key,
+	id serial
+);
+
+create table hash_dt_date (
+	date date primary key,
+	id serial
+);
+
+create table hash_dt_order (
+	orderkey integer primary key,
+	id serial
+);
+
+create table hash_dt_customer (
+	custkey integer primary key,
+	id serial
+);
+
+create table hash_jdt_shipment (
+	shipmode CHAR(10),
+	SHIPINSTRUCT CHAR(25),
+	id serial,
+	PRIMARY KEY (shipmode, SHIPINSTRUCT)
+);
+
+create table lookup_ft_lastdate (
+	lastdate date
+);
+insert into lookup_ft_lastdate values ('1970-01-01');

@@ -1,0 +1,30 @@
+insert into lookup_dt_prodotto (codprodotto)
+select p.cod_prodotto
+from exam202307.prodotti  p
+where p.cod_prodotto not in (
+	select l.codprodotto
+    from  lookup_dt_prodotto l
+)
+
+
+insert into dt_prodotto (id, prodotto, descrizione, prezzo, tipo, categoria)
+select l.id, p.nome_prodotto, p.descrizione, p.prezzo, t.nome_tipo, c.nome_categoria
+from exam202307.prodotti p
+    join lookup_dt_prodotto l on ( p.cod_prodotto = l.codprodotto)
+    join exam202307.tipi t on ( p.cod_tipo = t.cod_tipo)
+    join exam202307.categorie c on (t.cod_categoria = c.cod_categoria)
+where l.id not in (
+	select dt.id
+    from  dt_prodotto dt
+)
+
+update dt_prodotto (tipo)
+set t.nome_tipo 
+from exam202307.prodotti p
+    join lookup_dt_prodotto l on ( p.cod_prodotto = l.codprodotto)
+    join exam202307.tipi t on ( p.cod_tipo = t.cod_tipo)
+where l.id in (
+    select dt.id
+    from  dt_prodotto dt
+) and 
+    dt.tipo <> t.tipo 

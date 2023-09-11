@@ -1,0 +1,845 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20222.22.0624.2136                               -->
+<workbook original-version='18.1' source-build='2022.2.0 (20222.22.0624.2136)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelRelationshipPerfOptions.true...ObjectModelRelationshipPerfOptions />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='ft_prenotazioni (exam202302.ft_prenotazioni)+ (biexam)' inline='true' name='federated.06scrnr1y4xn4d13bea8w0e9vrw4' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='137.204.78.85' name='postgres.0igt54k1wdkg4m1f60x5x0k6005i'>
+            <connection authentication='username-password' class='postgres' dbname='biexam' one-time-sql='' port='5432' server='137.204.78.85' username='biexam2223' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_citta' table='[exam202302].[dt_citta]' type='table' />
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='ft_prenotazioni' table='[exam202302].[ft_prenotazioni]' type='table' />
+          <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_cliente' table='[exam202302].[dt_cliente]' type='table' />
+          <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_citta' table='[exam202302].[dt_citta]' type='table' />
+          <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_data' table='[exam202302].[dt_data]' type='table' />
+          <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_data1' table='[exam202302].[dt_data]' type='table' />
+          <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_hotel' table='[exam202302].[dt_hotel]' type='table' />
+          <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_citta1' table='[exam202302].[dt_citta]' type='table' />
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[anno (dt_data1)]' value='[dt_data1].[anno]' />
+          <map key='[anno]' value='[dt_data].[anno]' />
+          <map key='[città (dt_citta1)]' value='[dt_citta1].[città]' />
+          <map key='[città]' value='[dt_citta].[città]' />
+          <map key='[cliente]' value='[dt_cliente].[cliente]' />
+          <map key='[colazione]' value='[ft_prenotazioni].[colazione]' />
+          <map key='[data (dt_data1)]' value='[dt_data1].[data]' />
+          <map key='[data]' value='[dt_data].[data]' />
+          <map key='[hotel]' value='[dt_hotel].[hotel]' />
+          <map key='[id (dt_citta)]' value='[dt_citta].[id]' />
+          <map key='[id (dt_citta1)]' value='[dt_citta1].[id]' />
+          <map key='[id (dt_cliente)]' value='[dt_cliente].[id]' />
+          <map key='[id (dt_data)]' value='[dt_data].[id]' />
+          <map key='[id (dt_data1)]' value='[dt_data1].[id]' />
+          <map key='[id]' value='[dt_hotel].[id]' />
+          <map key='[idcitta (dt_cliente)]' value='[dt_cliente].[idcitta]' />
+          <map key='[idcitta]' value='[dt_hotel].[idcitta]' />
+          <map key='[idcliente]' value='[ft_prenotazioni].[idcliente]' />
+          <map key='[iddatacheckin]' value='[ft_prenotazioni].[iddatacheckin]' />
+          <map key='[iddataprenotazione]' value='[ft_prenotazioni].[iddataprenotazione]' />
+          <map key='[idhotel]' value='[ft_prenotazioni].[idhotel]' />
+          <map key='[mese (dt_data1)]' value='[dt_data1].[mese]' />
+          <map key='[mese]' value='[dt_data].[mese]' />
+          <map key='[numpersone]' value='[ft_prenotazioni].[numpersone]' />
+          <map key='[prezzo]' value='[ft_prenotazioni].[prezzo]' />
+          <map key='[ratingmedio]' value='[dt_hotel].[ratingmedio]' />
+          <map key='[regione (dt_citta1)]' value='[dt_citta1].[regione]' />
+          <map key='[regione]' value='[dt_citta].[regione]' />
+          <map key='[stato (dt_citta1)]' value='[dt_citta1].[stato]' />
+          <map key='[stato]' value='[dt_citta].[stato]' />
+          <map key='[stelle]' value='[dt_hotel].[stelle]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>idcliente</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[idcliente]</local-name>
+            <parent-name>[ft_prenotazioni]</parent-name>
+            <remote-alias>idcliente</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>idhotel</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[idhotel]</local-name>
+            <parent-name>[ft_prenotazioni]</parent-name>
+            <remote-alias>idhotel</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>colazione</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[colazione]</local-name>
+            <parent-name>[ft_prenotazioni]</parent-name>
+            <remote-alias>colazione</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>iddatacheckin</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[iddatacheckin]</local-name>
+            <parent-name>[ft_prenotazioni]</parent-name>
+            <remote-alias>iddatacheckin</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>iddataprenotazione</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[iddataprenotazione]</local-name>
+            <parent-name>[ft_prenotazioni]</parent-name>
+            <remote-alias>iddataprenotazione</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>prezzo</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[prezzo]</local-name>
+            <parent-name>[ft_prenotazioni]</parent-name>
+            <remote-alias>prezzo</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>numpersone</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[numpersone]</local-name>
+            <parent-name>[ft_prenotazioni]</parent-name>
+            <remote-alias>numpersone</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_cliente)]</local-name>
+            <parent-name>[dt_cliente]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_cliente (exam202302.dt_cliente)_3C43841633944E94ADC0D87702E63BAC]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cliente</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[cliente]</local-name>
+            <parent-name>[dt_cliente]</parent-name>
+            <remote-alias>cliente</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_cliente (exam202302.dt_cliente)_3C43841633944E94ADC0D87702E63BAC]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>idcitta</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[idcitta (dt_cliente)]</local-name>
+            <parent-name>[dt_cliente]</parent-name>
+            <remote-alias>idcitta</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_cliente (exam202302.dt_cliente)_3C43841633944E94ADC0D87702E63BAC]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_citta)]</local-name>
+            <parent-name>[dt_citta]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_citta (exam202302.dt_citta)_6CB3B88BBA744A679F1E9628C9CF08BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>città</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[città]</local-name>
+            <parent-name>[dt_citta]</parent-name>
+            <remote-alias>città</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_citta (exam202302.dt_citta)_6CB3B88BBA744A679F1E9628C9CF08BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>regione</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[regione]</local-name>
+            <parent-name>[dt_citta]</parent-name>
+            <remote-alias>regione</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_citta (exam202302.dt_citta)_6CB3B88BBA744A679F1E9628C9CF08BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stato</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[stato]</local-name>
+            <parent-name>[dt_citta]</parent-name>
+            <remote-alias>stato</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_citta (exam202302.dt_citta)_6CB3B88BBA744A679F1E9628C9CF08BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_data)]</local-name>
+            <parent-name>[dt_data]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_data (exam202302.dt_data)_4F823DC1B9594134AFBF3B525BBBB20B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>data</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[data]</local-name>
+            <parent-name>[dt_data]</parent-name>
+            <remote-alias>data</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_data (exam202302.dt_data)_4F823DC1B9594134AFBF3B525BBBB20B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>mese</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[mese]</local-name>
+            <parent-name>[dt_data]</parent-name>
+            <remote-alias>mese</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_data (exam202302.dt_data)_4F823DC1B9594134AFBF3B525BBBB20B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>anno</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[anno]</local-name>
+            <parent-name>[dt_data]</parent-name>
+            <remote-alias>anno</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_data (exam202302.dt_data)_4F823DC1B9594134AFBF3B525BBBB20B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_data1)]</local-name>
+            <parent-name>[dt_data1]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_data (exam202302.dt_data)_5E6E03CA2A984EE3820CC0B16CF39C66]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>data</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[data (dt_data1)]</local-name>
+            <parent-name>[dt_data1]</parent-name>
+            <remote-alias>data</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_data (exam202302.dt_data)_5E6E03CA2A984EE3820CC0B16CF39C66]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>mese</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[mese (dt_data1)]</local-name>
+            <parent-name>[dt_data1]</parent-name>
+            <remote-alias>mese</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_data (exam202302.dt_data)_5E6E03CA2A984EE3820CC0B16CF39C66]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>anno</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[anno (dt_data1)]</local-name>
+            <parent-name>[dt_data1]</parent-name>
+            <remote-alias>anno</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_data (exam202302.dt_data)_5E6E03CA2A984EE3820CC0B16CF39C66]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[dt_hotel]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_hotel (exam202302.dt_hotel)_81868B6A9DFE45E4B6F3488BBC0F45C9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hotel</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[hotel]</local-name>
+            <parent-name>[dt_hotel]</parent-name>
+            <remote-alias>hotel</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_hotel (exam202302.dt_hotel)_81868B6A9DFE45E4B6F3488BBC0F45C9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stelle</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[stelle]</local-name>
+            <parent-name>[dt_hotel]</parent-name>
+            <remote-alias>stelle</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_hotel (exam202302.dt_hotel)_81868B6A9DFE45E4B6F3488BBC0F45C9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ratingmedio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ratingmedio]</local-name>
+            <parent-name>[dt_hotel]</parent-name>
+            <remote-alias>ratingmedio</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_hotel (exam202302.dt_hotel)_81868B6A9DFE45E4B6F3488BBC0F45C9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>idcitta</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[idcitta]</local-name>
+            <parent-name>[dt_hotel]</parent-name>
+            <remote-alias>idcitta</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_hotel (exam202302.dt_hotel)_81868B6A9DFE45E4B6F3488BBC0F45C9]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_citta1)]</local-name>
+            <parent-name>[dt_citta1]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_citta (exam202302.dt_citta)_8990F0D1493C449DA7972DBEF25F3293]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>città</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[città (dt_citta1)]</local-name>
+            <parent-name>[dt_citta1]</parent-name>
+            <remote-alias>città</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_citta (exam202302.dt_citta)_8990F0D1493C449DA7972DBEF25F3293]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>regione</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[regione (dt_citta1)]</local-name>
+            <parent-name>[dt_citta1]</parent-name>
+            <remote-alias>regione</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_citta (exam202302.dt_citta)_8990F0D1493C449DA7972DBEF25F3293]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stato</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[stato (dt_citta1)]</local-name>
+            <parent-name>[dt_citta1]</parent-name>
+            <remote-alias>stato</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_citta (exam202302.dt_citta)_8990F0D1493C449DA7972DBEF25F3293]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Count' caption='Time to travel' datatype='integer' name='[Calculation_872853963904376834]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='DATEDIFF(&apos;day&apos;,[data (dt_data1)],[data])' />
+      </column>
+      <column caption='Prezzo per persona ' datatype='real' name='[Calculation_872853963905032196]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[prezzo]/[numpersone]' />
+      </column>
+      <column caption='Ratingmedio (BIN)' datatype='integer' name='[Ratingmedio (contenitore)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[ratingmedio]' peg='0' size='1' />
+      </column>
+      <column caption='Time to travel (BIN)' datatype='integer' name='[Time to travel (contenitore)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[Calculation_872853963904376834]' peg='0' size='5' />
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='dt_citta_cliente' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_citta (exam202302.dt_citta)_6CB3B88BBA744A679F1E9628C9CF08BF]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_citta_hotel' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_citta (exam202302.dt_citta)_8990F0D1493C449DA7972DBEF25F3293]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_cliente' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_cliente (exam202302.dt_cliente)_3C43841633944E94ADC0D87702E63BAC]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_data_checkin' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_data (exam202302.dt_data)_4F823DC1B9594134AFBF3B525BBBB20B]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_data_prenotazione' datatype='table' name='[__tableau_internal_object_id__].[dt_data (exam202302.dt_data)_5E6E03CA2A984EE3820CC0B16CF39C66]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_hotel' datatype='table' name='[__tableau_internal_object_id__].[dt_hotel (exam202302.dt_hotel)_81868B6A9DFE45E4B6F3488BBC0F45C9]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='ft_prenotazioni' datatype='table' name='[__tableau_internal_object_id__].[ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74]' role='measure' type='quantitative' />
+      <column caption='Anno (Dt Data1)' datatype='integer' name='[anno (dt_data1)]' role='dimension' type='quantitative' />
+      <column caption='Anno' datatype='integer' name='[anno]' role='dimension' type='quantitative' />
+      <column caption='Città (Dt Citta1)' datatype='string' name='[città (dt_citta1)]' role='dimension' type='nominal' />
+      <column caption='Città' datatype='string' name='[città]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Cliente' datatype='string' name='[cliente]' role='dimension' type='nominal' />
+      <column caption='Colazione' datatype='string' name='[colazione]' role='dimension' type='nominal' />
+      <column caption='Data prenotazione' datatype='date' name='[data (dt_data1)]' role='dimension' type='ordinal' />
+      <column caption='Data checkin' datatype='date' name='[data]' role='dimension' type='ordinal' />
+      <column caption='Hotel' datatype='string' name='[hotel]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Id (Dt Citta)' datatype='integer' name='[id (dt_citta)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Id (Dt Citta1)' datatype='integer' name='[id (dt_citta1)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Id (Dt Cliente)' datatype='integer' name='[id (dt_cliente)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Id (Dt Data)' datatype='integer' name='[id (dt_data)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Id (Dt Data1)' datatype='integer' name='[id (dt_data1)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Id' datatype='integer' name='[id]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Idcitta (Dt Cliente)' datatype='integer' name='[idcitta (dt_cliente)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Idcitta' datatype='integer' name='[idcitta]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Idcliente' datatype='integer' name='[idcliente]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Iddatacheckin' datatype='integer' name='[iddatacheckin]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Iddataprenotazione' datatype='integer' name='[iddataprenotazione]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Idhotel' datatype='integer' name='[idhotel]' role='dimension' type='ordinal' />
+      <column caption='Mese (Dt Data1)' datatype='string' name='[mese (dt_data1)]' role='dimension' type='nominal' />
+      <column caption='Mese' datatype='string' name='[mese]' role='dimension' type='nominal' />
+      <column caption='Numpersone' datatype='integer' name='[numpersone]' role='measure' type='quantitative' />
+      <column caption='Prezzo' datatype='real' name='[prezzo]' role='measure' type='quantitative' />
+      <column caption='Ratingmedio' datatype='real' name='[ratingmedio]' role='measure' type='quantitative' />
+      <column caption='Regione (Dt Citta1)' datatype='string' name='[regione (dt_citta1)]' role='dimension' type='nominal' />
+      <column caption='Regione' datatype='string' name='[regione]' role='dimension' type='nominal' />
+      <column caption='Stato (Dt Citta1)' datatype='string' name='[stato (dt_citta1)]' role='dimension' type='nominal' />
+      <column caption='Stato' datatype='string' name='[stato]' role='dimension' type='nominal' />
+      <column caption='Stelle' datatype='integer' name='[stelle]' role='measure' type='quantitative' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;IT&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='id (dt_citta1)' />
+        <field-sort-custom-order field='città (dt_citta1)' />
+        <field-sort-custom-order field='regione (dt_citta1)' />
+        <field-sort-custom-order field='stato (dt_citta1)' />
+      </field-sort-info>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='dt_citta_cliente' id='dt_citta (exam202302.dt_citta)_6CB3B88BBA744A679F1E9628C9CF08BF'>
+            <properties context=''>
+              <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_citta' table='[exam202302].[dt_citta]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_citta_hotel' id='dt_citta (exam202302.dt_citta)_8990F0D1493C449DA7972DBEF25F3293'>
+            <properties context=''>
+              <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_citta1' table='[exam202302].[dt_citta]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_cliente' id='dt_cliente (exam202302.dt_cliente)_3C43841633944E94ADC0D87702E63BAC'>
+            <properties context=''>
+              <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_cliente' table='[exam202302].[dt_cliente]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_data_checkin' id='dt_data (exam202302.dt_data)_4F823DC1B9594134AFBF3B525BBBB20B'>
+            <properties context=''>
+              <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_data' table='[exam202302].[dt_data]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_data_prenotazione' id='dt_data (exam202302.dt_data)_5E6E03CA2A984EE3820CC0B16CF39C66'>
+            <properties context=''>
+              <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_data1' table='[exam202302].[dt_data]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_hotel' id='dt_hotel (exam202302.dt_hotel)_81868B6A9DFE45E4B6F3488BBC0F45C9'>
+            <properties context=''>
+              <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='dt_hotel' table='[exam202302].[dt_hotel]' type='table' />
+            </properties>
+          </object>
+          <object caption='ft_prenotazioni' id='ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74'>
+            <properties context=''>
+              <relation connection='postgres.0igt54k1wdkg4m1f60x5x0k6005i' name='ft_prenotazioni' table='[exam202302].[ft_prenotazioni]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[idcitta (dt_cliente)]' />
+              <expression op='[id (dt_citta)]' />
+            </expression>
+            <first-end-point object-id='dt_cliente (exam202302.dt_cliente)_3C43841633944E94ADC0D87702E63BAC' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_citta (exam202302.dt_citta)_6CB3B88BBA744A679F1E9628C9CF08BF' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[idcitta]' />
+              <expression op='[id (dt_citta1)]' />
+            </expression>
+            <first-end-point object-id='dt_hotel (exam202302.dt_hotel)_81868B6A9DFE45E4B6F3488BBC0F45C9' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_citta (exam202302.dt_citta)_8990F0D1493C449DA7972DBEF25F3293' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[idcliente]' />
+              <expression op='[id (dt_cliente)]' />
+            </expression>
+            <first-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-guaranteed-value='true' guaranteed-value='true' object-id='ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_cliente (exam202302.dt_cliente)_3C43841633944E94ADC0D87702E63BAC' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[iddatacheckin]' />
+              <expression op='[id (dt_data)]' />
+            </expression>
+            <first-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-guaranteed-value='true' guaranteed-value='true' object-id='ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_data (exam202302.dt_data)_4F823DC1B9594134AFBF3B525BBBB20B' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[iddataprenotazione]' />
+              <expression op='[id (dt_data1)]' />
+            </expression>
+            <first-end-point object-id='ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_data (exam202302.dt_data)_5E6E03CA2A984EE3820CC0B16CF39C66' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[idhotel]' />
+              <expression op='[id]' />
+            </expression>
+            <first-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-guaranteed-value='true' guaranteed-value='true' object-id='ft_prenotazioni (exam202302.ft_prenotazioni)_331690C5A9534BE7ABB116D8DEBE8C74' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_hotel (exam202302.dt_hotel)_81868B6A9DFE45E4B6F3488BBC0F45C9' unique-key='true' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Foglio 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='ft_prenotazioni (exam202302.ft_prenotazioni)+ (biexam)' name='federated.06scrnr1y4xn4d13bea8w0e9vrw4' />
+          </datasources>
+          <datasource-dependencies datasource='federated.06scrnr1y4xn4d13bea8w0e9vrw4'>
+            <column aggregation='Count' caption='Time to travel' datatype='integer' name='[Calculation_872853963904376834]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='DATEDIFF(&apos;day&apos;,[data (dt_data1)],[data])' />
+            </column>
+            <column caption='Prezzo per persona ' datatype='real' name='[Calculation_872853963905032196]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[prezzo]/[numpersone]' />
+            </column>
+            <column caption='Ratingmedio (BIN)' datatype='integer' name='[Ratingmedio (contenitore)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[ratingmedio]' peg='0' size='1' />
+            </column>
+            <column caption='Time to travel (BIN)' datatype='integer' name='[Time to travel (contenitore)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[Calculation_872853963904376834]' peg='0' size='5' />
+            </column>
+            <column-instance column='[Calculation_872853963905032196]' derivation='Avg' name='[avg:Calculation_872853963905032196:qk]' pivot='key' type='quantitative' />
+            <column caption='Data prenotazione' datatype='date' name='[data (dt_data1)]' role='dimension' type='ordinal' />
+            <column caption='Data checkin' datatype='date' name='[data]' role='dimension' type='ordinal' />
+            <column-instance column='[stelle]' derivation='Min' name='[min:stelle:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Ratingmedio (contenitore)]' derivation='None' name='[none:Ratingmedio (contenitore):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Time to travel (contenitore)]' derivation='None' name='[none:Time to travel (contenitore):ok]' pivot='key' type='ordinal' />
+            <column caption='Numpersone' datatype='integer' name='[numpersone]' role='measure' type='quantitative' />
+            <column caption='Prezzo' datatype='real' name='[prezzo]' role='measure' type='quantitative' />
+            <column caption='Ratingmedio' datatype='real' name='[ratingmedio]' role='measure' type='quantitative' />
+            <column caption='Stelle' datatype='integer' name='[stelle]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.06scrnr1y4xn4d13bea8w0e9vrw4].[avg:Calculation_872853963905032196:qk]' />
+              <lod column='[federated.06scrnr1y4xn4d13bea8w0e9vrw4].[min:stelle:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='has-stroke' value='false' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.06scrnr1y4xn4d13bea8w0e9vrw4].[none:Ratingmedio (contenitore):ok]</rows>
+        <cols>[federated.06scrnr1y4xn4d13bea8w0e9vrw4].[none:Time to travel (contenitore):ok]</cols>
+      </table>
+      <simple-id uuid='{5377C53F-70E0-4CC3-80B3-046941058E79}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Foglio 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.06scrnr1y4xn4d13bea8w0e9vrw4].[avg:Calculation_872853963905032196:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.06scrnr1y4xn4d13bea8w0e9vrw4].[avg:Calculation_872853963905032196:qk]</field>
+            <field>[federated.06scrnr1y4xn4d13bea8w0e9vrw4].[none:Calculation_872853963902857216:ok]</field>
+            <field>[federated.06scrnr1y4xn4d13bea8w0e9vrw4].[none:Calculation_872853963902857216:qk]</field>
+            <field>[federated.06scrnr1y4xn4d13bea8w0e9vrw4].[none:Ratingmedio (contenitore):ok]</field>
+            <field>[federated.06scrnr1y4xn4d13bea8w0e9vrw4].[none:Time to travel (contenitore):ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{D47139A1-9B25-44CD-B7C4-0F1499C56E5B}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='184' name='Foglio 1' width='192'>
+      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
+      AABJRU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>

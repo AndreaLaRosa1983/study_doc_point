@@ -1,0 +1,55 @@
+drop table if exists jdt_order;
+drop table if exists ft_order;
+drop table if exists bridge_ps;
+drop table if exists hash_jdt_order;
+drop table if exists lookup_ft_order_lastdate;
+
+create table jdt_order (
+	ID SERIAL,
+	ORDERSTATUS CHAR(1), 
+	ORDERPRIORITY CHAR(15), 
+	CLERK CHAR(15), 
+	SHIPPRIORITY integer, 
+	PRIMARY KEY (ID)
+);
+
+ -- a separate primary key (id) is created in the fact table 
+ -- to reduce space occupation in the bridge table 
+ -- (which, otherwise, would have required the combination of id_date, id_customer, and id_junk_order)
+create table ft_order (
+	ID SERIAL,
+	TOTALPRICE double precision, 
+	ID_DATE integer, 
+	ID_CUSTOMER integer,
+	ID_JUNK_ORDER integer, 
+	PRIMARY KEY (ID)
+	--,FOREIGN KEY (ID_DATE) REFERENCES DT_DATE (ID)
+	--,FOREIGN KEY (ID_CUSTOMER) REFERENCES DT_CUSTOMER (ID)
+	--,FOREIGN KEY (ID_JUNK_ORDER) REFERENCES JDT_ORDER (ID)
+);
+
+create table bridge_ps (
+	ID_PART integer, 
+	ID_SUPPLIER integer,
+	ID_FT integer,
+	WEIGHT double precision,
+	PRIMARY KEY (ID_PART, ID_SUPPLIER, ID_FT)
+	--,FOREIGN KEY (ID_PART) REFERENCES DT_PART (ID)
+	--,FOREIGN KEY (ID_SUPPLIER) REFERENCES DT_SUPPLIER (ID)
+	--,FOREIGN KEY (ID_FT) REFERENCES FT_ORDER (ID)
+);
+
+
+create table hash_jdt_order (
+	ORDERSTATUS CHAR(1),
+	ORDERPRIORITY CHAR(15), 
+	CLERK CHAR(15), 
+	SHIPPRIORITY integer,
+	id serial
+);
+
+
+create table lookup_ft_order_lastdate (
+	lastdate date
+);
+insert into lookup_ft_order_lastdate values ('1970-01-01');

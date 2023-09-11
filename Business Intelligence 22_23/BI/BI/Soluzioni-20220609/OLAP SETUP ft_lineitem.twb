@@ -1,0 +1,1552 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20213.21.0822.2038                               -->
+<workbook original-version='18.1' source-build='2021.3.0 (20213.21.0822.2038)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelRelationshipPerfOptions.true...ObjectModelRelationshipPerfOptions />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='ft (bi00.ft)+ (bi)' inline='true' name='federated.16la2my0mmd4zl1ev28e21v4k4y0' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='137.204.78.85' name='postgres.0nhtpha0rdxf4b14l6tm60go280j'>
+            <connection authentication='username-password' class='postgres' dbname='bi' one-time-sql='' port='5432' server='137.204.78.85' username='bi00' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_customer' table='[bi00].[dt_customer]' type='table' />
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='ft' table='[bi00].[ft]' type='table' />
+          <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_date3' table='[bi00].[dt_date]' type='table' />
+          <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_date1' table='[bi00].[dt_date]' type='table' />
+          <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_date2' table='[bi00].[dt_date]' type='table' />
+          <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_order' table='[bi00].[dt_order]' type='table' />
+          <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_customer' table='[bi00].[dt_customer]' type='table' />
+          <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_date' table='[bi00].[dt_date]' type='table' />
+          <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_part' table='[bi00].[dt_part]' type='table' />
+          <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_supplier' table='[bi00].[dt_supplier]' type='table' />
+          <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='jdt_shipment' table='[bi00].[jdt_shipment]' type='table' />
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[acctbal (dt_customer)]' value='[dt_customer].[acctbal]' />
+          <map key='[acctbal]' value='[dt_supplier].[acctbal]' />
+          <map key='[address (dt_customer)]' value='[dt_customer].[address]' />
+          <map key='[address]' value='[dt_supplier].[address]' />
+          <map key='[brand]' value='[dt_part].[brand]' />
+          <map key='[clerk]' value='[dt_order].[clerk]' />
+          <map key='[container]' value='[dt_part].[container]' />
+          <map key='[custkey]' value='[dt_customer].[custkey]' />
+          <map key='[date (dt_date1)]' value='[dt_date1].[date]' />
+          <map key='[date (dt_date2)]' value='[dt_date2].[date]' />
+          <map key='[date (dt_date3)]' value='[dt_date3].[date]' />
+          <map key='[date]' value='[dt_date].[date]' />
+          <map key='[discount]' value='[ft].[discount]' />
+          <map key='[extendedprice]' value='[ft].[extendedprice]' />
+          <map key='[id (dt_customer)]' value='[dt_customer].[id]' />
+          <map key='[id (dt_date)]' value='[dt_date].[id]' />
+          <map key='[id (dt_date1)]' value='[dt_date1].[id]' />
+          <map key='[id (dt_date2)]' value='[dt_date2].[id]' />
+          <map key='[id (dt_date3)]' value='[dt_date3].[id]' />
+          <map key='[id (dt_order)]' value='[dt_order].[id]' />
+          <map key='[id (dt_supplier)]' value='[dt_supplier].[id]' />
+          <map key='[id (jdt_shipment)]' value='[jdt_shipment].[id]' />
+          <map key='[id]' value='[dt_part].[id]' />
+          <map key='[id_commitdate]' value='[ft].[id_commitdate]' />
+          <map key='[id_customer]' value='[dt_order].[id_customer]' />
+          <map key='[id_date]' value='[dt_order].[id_date]' />
+          <map key='[id_order]' value='[ft].[id_order]' />
+          <map key='[id_part]' value='[ft].[id_part]' />
+          <map key='[id_receiptdate]' value='[ft].[id_receiptdate]' />
+          <map key='[id_shipdate]' value='[ft].[id_shipdate]' />
+          <map key='[id_shipment]' value='[ft].[id_shipment]' />
+          <map key='[id_supplier]' value='[ft].[id_supplier]' />
+          <map key='[linestatus]' value='[ft].[linestatus]' />
+          <map key='[mfgr]' value='[dt_part].[mfgr]' />
+          <map key='[mktsegment]' value='[dt_customer].[mktsegment]' />
+          <map key='[month (dt_date1)]' value='[dt_date1].[month]' />
+          <map key='[month (dt_date2)]' value='[dt_date2].[month]' />
+          <map key='[month (dt_date3)]' value='[dt_date3].[month]' />
+          <map key='[month]' value='[dt_date].[month]' />
+          <map key='[name]' value='[dt_customer].[name]' />
+          <map key='[nation (dt_customer)]' value='[dt_customer].[nation]' />
+          <map key='[nation]' value='[dt_supplier].[nation]' />
+          <map key='[orderkey]' value='[dt_order].[orderkey]' />
+          <map key='[orderpriority]' value='[dt_order].[orderpriority]' />
+          <map key='[orderstatus]' value='[dt_order].[orderstatus]' />
+          <map key='[part]' value='[dt_part].[part]' />
+          <map key='[phone (dt_customer)]' value='[dt_customer].[phone]' />
+          <map key='[phone]' value='[dt_supplier].[phone]' />
+          <map key='[quantity]' value='[ft].[quantity]' />
+          <map key='[region (dt_customer)]' value='[dt_customer].[region]' />
+          <map key='[region]' value='[dt_supplier].[region]' />
+          <map key='[retailprice]' value='[dt_part].[retailprice]' />
+          <map key='[returnflag]' value='[ft].[returnflag]' />
+          <map key='[shipinstruct]' value='[jdt_shipment].[shipinstruct]' />
+          <map key='[shipmode]' value='[jdt_shipment].[shipmode]' />
+          <map key='[shippriority]' value='[dt_order].[shippriority]' />
+          <map key='[size]' value='[dt_part].[size]' />
+          <map key='[supplier]' value='[dt_supplier].[supplier]' />
+          <map key='[tax]' value='[ft].[tax]' />
+          <map key='[totalprice]' value='[dt_order].[totalprice]' />
+          <map key='[type]' value='[dt_part].[type]' />
+          <map key='[year (dt_date1)]' value='[dt_date1].[year]' />
+          <map key='[year (dt_date2)]' value='[dt_date2].[year]' />
+          <map key='[year (dt_date3)]' value='[dt_date3].[year]' />
+          <map key='[year]' value='[dt_date].[year]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>quantity</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[quantity]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>quantity</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>extendedprice</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[extendedprice]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>extendedprice</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>discount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[discount]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>discount</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tax</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[tax]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>tax</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>returnflag</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[returnflag]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>returnflag</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>linestatus</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[linestatus]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>linestatus</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_shipdate</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id_shipdate]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>id_shipdate</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_commitdate</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id_commitdate]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>id_commitdate</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_receiptdate</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id_receiptdate]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>id_receiptdate</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_order</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id_order]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>id_order</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_part</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id_part]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>id_part</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_supplier</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id_supplier]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>id_supplier</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_shipment</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id_shipment]</local-name>
+            <parent-name>[ft]</parent-name>
+            <remote-alias>id_shipment</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_date3)]</local-name>
+            <parent-name>[dt_date3]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_194387237D294DC4B7505F8DD63DFD77]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date (dt_date3)]</local-name>
+            <parent-name>[dt_date3]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_194387237D294DC4B7505F8DD63DFD77]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[month (dt_date3)]</local-name>
+            <parent-name>[dt_date3]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_194387237D294DC4B7505F8DD63DFD77]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year (dt_date3)]</local-name>
+            <parent-name>[dt_date3]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_194387237D294DC4B7505F8DD63DFD77]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_date1)]</local-name>
+            <parent-name>[dt_date1]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_3ACE19E428C74B70828434A6D80B9D7E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date (dt_date1)]</local-name>
+            <parent-name>[dt_date1]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_3ACE19E428C74B70828434A6D80B9D7E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[month (dt_date1)]</local-name>
+            <parent-name>[dt_date1]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_3ACE19E428C74B70828434A6D80B9D7E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year (dt_date1)]</local-name>
+            <parent-name>[dt_date1]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_3ACE19E428C74B70828434A6D80B9D7E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_date2)]</local-name>
+            <parent-name>[dt_date2]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_4D68D65AC39444379CAE16B9627975F1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date (dt_date2)]</local-name>
+            <parent-name>[dt_date2]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_4D68D65AC39444379CAE16B9627975F1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[month (dt_date2)]</local-name>
+            <parent-name>[dt_date2]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_4D68D65AC39444379CAE16B9627975F1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year (dt_date2)]</local-name>
+            <parent-name>[dt_date2]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_4D68D65AC39444379CAE16B9627975F1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_order)]</local-name>
+            <parent-name>[dt_order]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>orderkey</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[orderkey]</local-name>
+            <parent-name>[dt_order]</parent-name>
+            <remote-alias>orderkey</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>orderstatus</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[orderstatus]</local-name>
+            <parent-name>[dt_order]</parent-name>
+            <remote-alias>orderstatus</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>totalprice</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[totalprice]</local-name>
+            <parent-name>[dt_order]</parent-name>
+            <remote-alias>totalprice</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>orderpriority</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[orderpriority]</local-name>
+            <parent-name>[dt_order]</parent-name>
+            <remote-alias>orderpriority</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>15</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>clerk</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[clerk]</local-name>
+            <parent-name>[dt_order]</parent-name>
+            <remote-alias>clerk</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>15</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>shippriority</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[shippriority]</local-name>
+            <parent-name>[dt_order]</parent-name>
+            <remote-alias>shippriority</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_date</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id_date]</local-name>
+            <parent-name>[dt_order]</parent-name>
+            <remote-alias>id_date</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_customer</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id_customer]</local-name>
+            <parent-name>[dt_order]</parent-name>
+            <remote-alias>id_customer</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_customer)]</local-name>
+            <parent-name>[dt_customer]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>custkey</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[custkey]</local-name>
+            <parent-name>[dt_customer]</parent-name>
+            <remote-alias>custkey</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[name]</local-name>
+            <parent-name>[dt_customer]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>25</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>address</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[address (dt_customer)]</local-name>
+            <parent-name>[dt_customer]</parent-name>
+            <remote-alias>address</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>40</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>phone</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[phone (dt_customer)]</local-name>
+            <parent-name>[dt_customer]</parent-name>
+            <remote-alias>phone</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>15</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>acctbal</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[acctbal (dt_customer)]</local-name>
+            <parent-name>[dt_customer]</parent-name>
+            <remote-alias>acctbal</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>mktsegment</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[mktsegment]</local-name>
+            <parent-name>[dt_customer]</parent-name>
+            <remote-alias>mktsegment</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>nation</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[nation (dt_customer)]</local-name>
+            <parent-name>[dt_customer]</parent-name>
+            <remote-alias>nation</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>25</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>region</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[region (dt_customer)]</local-name>
+            <parent-name>[dt_customer]</parent-name>
+            <remote-alias>region</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>25</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_date)]</local-name>
+            <parent-name>[dt_date]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_E3A84BE46E6041B0BAFD26F9DF15EB2D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[dt_date]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_E3A84BE46E6041B0BAFD26F9DF15EB2D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[month]</local-name>
+            <parent-name>[dt_date]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_E3A84BE46E6041B0BAFD26F9DF15EB2D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[dt_date]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_date (bi00.dt_date)_E3A84BE46E6041B0BAFD26F9DF15EB2D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[dt_part]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_part (bi00.dt_part)_F8D9B31FDF9C4175BF5F848BFA7965BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>part</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[part]</local-name>
+            <parent-name>[dt_part]</parent-name>
+            <remote-alias>part</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>55</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_part (bi00.dt_part)_F8D9B31FDF9C4175BF5F848BFA7965BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>mfgr</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[mfgr]</local-name>
+            <parent-name>[dt_part]</parent-name>
+            <remote-alias>mfgr</remote-alias>
+            <ordinal>57</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>25</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_part (bi00.dt_part)_F8D9B31FDF9C4175BF5F848BFA7965BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>brand</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[brand]</local-name>
+            <parent-name>[dt_part]</parent-name>
+            <remote-alias>brand</remote-alias>
+            <ordinal>58</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_part (bi00.dt_part)_F8D9B31FDF9C4175BF5F848BFA7965BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[type]</local-name>
+            <parent-name>[dt_part]</parent-name>
+            <remote-alias>type</remote-alias>
+            <ordinal>59</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>25</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_part (bi00.dt_part)_F8D9B31FDF9C4175BF5F848BFA7965BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>size</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[size]</local-name>
+            <parent-name>[dt_part]</parent-name>
+            <remote-alias>size</remote-alias>
+            <ordinal>60</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_part (bi00.dt_part)_F8D9B31FDF9C4175BF5F848BFA7965BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>container</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[container]</local-name>
+            <parent-name>[dt_part]</parent-name>
+            <remote-alias>container</remote-alias>
+            <ordinal>61</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_part (bi00.dt_part)_F8D9B31FDF9C4175BF5F848BFA7965BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>retailprice</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[retailprice]</local-name>
+            <parent-name>[dt_part]</parent-name>
+            <remote-alias>retailprice</remote-alias>
+            <ordinal>62</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_part (bi00.dt_part)_F8D9B31FDF9C4175BF5F848BFA7965BF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (dt_supplier)]</local-name>
+            <parent-name>[dt_supplier]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>64</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_supplier (bi00.dt_supplier)_086EED57F78E4BADBB9B73EFEF5DCED5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>supplier</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[supplier]</local-name>
+            <parent-name>[dt_supplier]</parent-name>
+            <remote-alias>supplier</remote-alias>
+            <ordinal>65</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>25</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_supplier (bi00.dt_supplier)_086EED57F78E4BADBB9B73EFEF5DCED5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>address</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[address]</local-name>
+            <parent-name>[dt_supplier]</parent-name>
+            <remote-alias>address</remote-alias>
+            <ordinal>66</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>40</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_supplier (bi00.dt_supplier)_086EED57F78E4BADBB9B73EFEF5DCED5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>phone</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[phone]</local-name>
+            <parent-name>[dt_supplier]</parent-name>
+            <remote-alias>phone</remote-alias>
+            <ordinal>67</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>15</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_supplier (bi00.dt_supplier)_086EED57F78E4BADBB9B73EFEF5DCED5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>acctbal</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[acctbal]</local-name>
+            <parent-name>[dt_supplier]</parent-name>
+            <remote-alias>acctbal</remote-alias>
+            <ordinal>68</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_supplier (bi00.dt_supplier)_086EED57F78E4BADBB9B73EFEF5DCED5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>nation</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[nation]</local-name>
+            <parent-name>[dt_supplier]</parent-name>
+            <remote-alias>nation</remote-alias>
+            <ordinal>69</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>25</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_supplier (bi00.dt_supplier)_086EED57F78E4BADBB9B73EFEF5DCED5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>region</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[region]</local-name>
+            <parent-name>[dt_supplier]</parent-name>
+            <remote-alias>region</remote-alias>
+            <ordinal>70</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>25</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[dt_supplier (bi00.dt_supplier)_086EED57F78E4BADBB9B73EFEF5DCED5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (jdt_shipment)]</local-name>
+            <parent-name>[jdt_shipment]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>72</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[jdt_shipment (bi00.jdt_shipment)_1539271B3308450398D3B816B8A4080E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>shipinstruct</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[shipinstruct]</local-name>
+            <parent-name>[jdt_shipment]</parent-name>
+            <remote-alias>shipinstruct</remote-alias>
+            <ordinal>73</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>25</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[jdt_shipment (bi00.jdt_shipment)_1539271B3308450398D3B816B8A4080E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>shipmode</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[shipmode]</local-name>
+            <parent-name>[jdt_shipment]</parent-name>
+            <remote-alias>shipmode</remote-alias>
+            <ordinal>74</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[jdt_shipment (bi00.jdt_shipment)_1539271B3308450398D3B816B8A4080E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Sum' caption='Custkey (Mktsegment)' datatype='integer' name='[Custkey (Customer Region) (copia) (copia 2)_4334714669325508614]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='[custkey]' />
+      </column>
+      <column aggregation='Sum' caption='Orderkey (Customer Region) (copia) (copia) (copia) (copia 2) (copia)' datatype='integer' name='[Orderkey (Customer Region) (copia) (copia) (copia) (copia 2) (copia)_4334714669325668365]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='[orderkey]' />
+      </column>
+      <column aggregation='Sum' caption='Orderkey (Customer Region) (copia) (copia) (copia) (copia 2)' datatype='integer' name='[Orderkey (Customer Region) (copia) (copia) (copia) (copia 2)_4334714669325660172]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='[orderkey]' />
+      </column>
+      <column aggregation='Sum' caption='Orderkey (Mktsegment)' datatype='integer' name='[Orderkey (Customer Region) (copia) (copia) (copia) (copia)_4334714669325651979]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='[orderkey]' />
+      </column>
+      <column aggregation='Sum' caption='Orderkey (Customer Region) (copia) (copia) (copia)' datatype='integer' name='[Orderkey (Customer Region) (copia) (copia) (copia)_4334714669325647882]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='[orderkey]' />
+      </column>
+      <column aggregation='Sum' caption='Orderkey (Customer Region) (copia)' datatype='integer' name='[Orderkey (Customer Region) (copia)_4334714669325606920]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='[orderkey]' />
+      </column>
+      <column aggregation='Sum' caption='Orderkey (Customer Region)' datatype='integer' name='[Orderkey (copia)_4334714669324890115]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='[orderkey]' />
+      </column>
+      <column caption='Part (Container)' datatype='string' name='[Part (copia 2)_4334714669320212481]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[part]' />
+      </column>
+      <column caption='Part (Type)' datatype='string' name='[Part (copia 3)_4334714669320278018]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[part]' />
+      </column>
+      <column caption='Part (Brand)' datatype='string' name='[Part (copia)_4334714669320155136]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[part]' />
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='dt_customer' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_date_commit' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_date (bi00.dt_date)_194387237D294DC4B7505F8DD63DFD77]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_date_shipment' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_date (bi00.dt_date)_3ACE19E428C74B70828434A6D80B9D7E]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_date_receipt' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_date (bi00.dt_date)_4D68D65AC39444379CAE16B9627975F1]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_date' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_date (bi00.dt_date)_E3A84BE46E6041B0BAFD26F9DF15EB2D]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_order' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_part' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_part (bi00.dt_part)_F8D9B31FDF9C4175BF5F848BFA7965BF]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='dt_supplier' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[dt_supplier (bi00.dt_supplier)_086EED57F78E4BADBB9B73EFEF5DCED5]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='ft' datatype='table' name='[__tableau_internal_object_id__].[ft (bi00.ft)_80CD72679C0147C1A486A54516198496]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='jdt_shipment' datatype='table' hidden='true' name='[__tableau_internal_object_id__].[jdt_shipment (bi00.jdt_shipment)_1539271B3308450398D3B816B8A4080E]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Acctbal (Customer)' datatype='real' name='[acctbal (dt_customer)]' role='dimension' type='quantitative' />
+      <column aggregation='Sum' caption='Acctbal (Supplier)' datatype='real' name='[acctbal]' role='dimension' type='quantitative' />
+      <column caption='Address (Customer)' datatype='string' name='[address (dt_customer)]' role='dimension' type='nominal' />
+      <column caption='Address (Supplier)' datatype='string' name='[address]' role='dimension' type='nominal' />
+      <column caption='Brand' datatype='string' name='[brand]' role='dimension' type='nominal' />
+      <column caption='Clerk' datatype='string' name='[clerk]' role='dimension' type='nominal' />
+      <column caption='Container' datatype='string' name='[container]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Custkey (Customer Region)' datatype='integer' name='[custkey]' role='dimension' type='ordinal' />
+      <column caption='Date (Shipment)' datatype='date' name='[date (dt_date1)]' role='dimension' type='ordinal' />
+      <column caption='Date (Receipt)' datatype='date' name='[date (dt_date2)]' role='dimension' type='ordinal' />
+      <column caption='Date (Commit)' datatype='date' name='[date (dt_date3)]' role='dimension' type='ordinal' />
+      <column caption='Date (Order)' datatype='date' name='[date]' role='dimension' type='ordinal' />
+      <column caption='Discount' datatype='real' name='[discount]' role='measure' type='quantitative' />
+      <column caption='Extendedprice' datatype='real' name='[extendedprice]' role='measure' type='quantitative' />
+      <column caption='Id (Dt Customer)' datatype='integer' hidden='true' name='[id (dt_customer)]' role='dimension' type='ordinal' />
+      <column datatype='integer' hidden='true' name='[id (dt_date)]' role='dimension' type='ordinal' />
+      <column datatype='integer' hidden='true' name='[id (dt_date1)]' role='dimension' type='ordinal' />
+      <column datatype='integer' hidden='true' name='[id (dt_date2)]' role='dimension' type='ordinal' />
+      <column datatype='integer' hidden='true' name='[id (dt_date3)]' role='dimension' type='ordinal' />
+      <column caption='Id (Dt Order)' datatype='integer' hidden='true' name='[id (dt_order)]' role='dimension' type='ordinal' />
+      <column caption='Id (Dt Supplier)' datatype='integer' hidden='true' name='[id (dt_supplier)]' role='dimension' type='ordinal' />
+      <column caption='Id (Jdt Shipment)' datatype='integer' hidden='true' name='[id (jdt_shipment)]' role='dimension' type='ordinal' />
+      <column caption='Id' datatype='integer' hidden='true' name='[id]' role='dimension' type='ordinal' />
+      <column caption='Id Commitdate' datatype='integer' hidden='true' name='[id_commitdate]' role='dimension' type='ordinal' />
+      <column caption='Id Customer' datatype='integer' hidden='true' name='[id_customer]' role='dimension' type='ordinal' />
+      <column caption='Id Date' datatype='integer' hidden='true' name='[id_date]' role='dimension' type='ordinal' />
+      <column caption='Id Order' datatype='integer' hidden='true' name='[id_order]' role='dimension' type='ordinal' />
+      <column caption='Id Part' datatype='integer' hidden='true' name='[id_part]' role='dimension' type='ordinal' />
+      <column caption='Id Receiptdate' datatype='integer' hidden='true' name='[id_receiptdate]' role='dimension' type='ordinal' />
+      <column caption='Id Shipdate' datatype='integer' hidden='true' name='[id_shipdate]' role='dimension' type='ordinal' />
+      <column caption='Id Shipment' datatype='integer' hidden='true' name='[id_shipment]' role='dimension' type='ordinal' />
+      <column caption='Id Supplier' datatype='integer' hidden='true' name='[id_supplier]' role='dimension' type='ordinal' />
+      <column caption='Linestatus' datatype='string' name='[linestatus]' role='dimension' type='nominal' />
+      <column caption='Mfgr' datatype='string' name='[mfgr]' role='dimension' type='nominal' />
+      <column caption='Mktsegment' datatype='string' name='[mktsegment]' role='dimension' type='nominal' />
+      <column caption='Month (Shipment)' datatype='string' name='[month (dt_date1)]' role='dimension' type='nominal' />
+      <column caption='Month (Receipt)' datatype='string' name='[month (dt_date2)]' role='dimension' type='nominal' />
+      <column caption='Month (Commit)' datatype='string' name='[month (dt_date3)]' role='dimension' type='nominal' />
+      <column caption='Month (Order)' datatype='string' name='[month]' role='dimension' type='nominal' />
+      <column caption='Customer Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+      <column caption='Nation (Customer)' datatype='string' name='[nation (dt_customer)]' role='dimension' type='nominal' />
+      <column caption='Nation  (Supplier)' datatype='string' name='[nation]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column aggregation='Sum' caption='Orderkey (Order Year)' datatype='integer' name='[orderkey]' role='dimension' type='ordinal' />
+      <column caption='Orderpriority' datatype='string' name='[orderpriority]' role='dimension' type='nominal' />
+      <column caption='Orderstatus' datatype='string' name='[orderstatus]' role='dimension' type='nominal' />
+      <column caption='Part (Mfgr)' datatype='string' name='[part]' role='dimension' type='nominal' />
+      <column caption='Phone (Customer)' datatype='string' name='[phone (dt_customer)]' role='dimension' type='nominal' />
+      <column caption='Phone (Supplier)' datatype='string' name='[phone]' role='dimension' type='nominal' />
+      <column caption='Quantity' datatype='real' name='[quantity]' role='measure' type='quantitative' />
+      <column caption='Region (Customer)' datatype='string' name='[region (dt_customer)]' role='dimension' type='nominal' />
+      <column caption='Region (Supplier)' datatype='string' name='[region]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Retailprice' datatype='real' name='[retailprice]' role='dimension' type='quantitative' />
+      <column caption='Returnflag' datatype='string' name='[returnflag]' role='dimension' type='nominal' />
+      <column caption='Shipinstruct' datatype='string' name='[shipinstruct]' role='dimension' type='nominal' />
+      <column caption='Shipmode' datatype='string' name='[shipmode]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Shippriority' datatype='integer' name='[shippriority]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Size' datatype='integer' name='[size]' role='dimension' type='quantitative' />
+      <column caption='Supplier  (Supplier)' datatype='string' name='[supplier]' role='dimension' type='nominal' />
+      <column caption='Tax' datatype='real' name='[tax]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Totalprice' datatype='real' name='[totalprice]' role='dimension' type='quantitative' />
+      <column caption='Type' datatype='string' name='[type]' role='dimension' type='nominal' />
+      <column caption='Year (Shipment)' datatype='integer' name='[year (dt_date1)]' role='dimension' type='ordinal' />
+      <column caption='Year (Receipt)' datatype='integer' name='[year (dt_date2)]' role='dimension' type='ordinal' />
+      <column caption='Year (Commit)' datatype='integer' name='[year (dt_date3)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Year (Order)' datatype='integer' name='[year]' role='dimension' type='ordinal' />
+      <column-instance column='[region]' derivation='None' name='[none:region:nk]' pivot='key' type='nominal' />
+      <drill-paths>
+        <drill-path name='Brand H.'>
+          <field>[brand]</field>
+          <field>[Part (copia)_4334714669320155136]</field>
+        </drill-path>
+        <drill-path name='Clerk H.'>
+          <field>[clerk]</field>
+          <field>[Orderkey (Customer Region) (copia) (copia) (copia)_4334714669325647882]</field>
+        </drill-path>
+        <drill-path name='Commit Year  H.'>
+          <field>[year (dt_date3)]</field>
+          <field>[month (dt_date3)]</field>
+          <field>[date (dt_date3)]</field>
+        </drill-path>
+        <drill-path name='Container  H.'>
+          <field>[container]</field>
+          <field>[Part (copia 2)_4334714669320212481]</field>
+        </drill-path>
+        <drill-path name='Customer Region H.'>
+          <field>[region (dt_customer)]</field>
+          <field>[nation (dt_customer)]</field>
+          <field>[custkey]</field>
+          <field>[Orderkey (copia)_4334714669324890115]</field>
+        </drill-path>
+        <drill-path name='Linestatus H.'>
+          <field>[linestatus]</field>
+        </drill-path>
+        <drill-path name='Mfgr  H.'>
+          <field>[mfgr]</field>
+          <field>[part]</field>
+        </drill-path>
+        <drill-path name='Mktsegment H.'>
+          <field>[mktsegment]</field>
+          <field>[Custkey (Customer Region) (copia) (copia 2)_4334714669325508614]</field>
+          <field>[Orderkey (Customer Region) (copia) (copia) (copia) (copia)_4334714669325651979]</field>
+        </drill-path>
+        <drill-path name='Order Year H.'>
+          <field>[year]</field>
+          <field>[month]</field>
+          <field>[date]</field>
+          <field>[orderkey]</field>
+        </drill-path>
+        <drill-path name='Orderpriority H.'>
+          <field>[orderpriority]</field>
+          <field>[Orderkey (Customer Region) (copia) (copia) (copia) (copia 2)_4334714669325660172]</field>
+        </drill-path>
+        <drill-path name='Orderstatus H.'>
+          <field>[orderstatus]</field>
+          <field>[Orderkey (Customer Region) (copia) (copia) (copia) (copia 2) (copia)_4334714669325668365]</field>
+        </drill-path>
+        <drill-path name='Receipt Year H.'>
+          <field>[year (dt_date2)]</field>
+          <field>[month (dt_date2)]</field>
+          <field>[date (dt_date2)]</field>
+        </drill-path>
+        <drill-path name='Returnflag H.'>
+          <field>[returnflag]</field>
+        </drill-path>
+        <drill-path name='Shipinstruct H.'>
+          <field>[shipinstruct]</field>
+        </drill-path>
+        <drill-path name='Shipment Year H.'>
+          <field>[year (dt_date1)]</field>
+          <field>[month (dt_date1)]</field>
+          <field>[date (dt_date1)]</field>
+        </drill-path>
+        <drill-path name='Shipmode H.'>
+          <field>[shipmode]</field>
+        </drill-path>
+        <drill-path name='Shippriority H.'>
+          <field>[shippriority]</field>
+          <field>[Orderkey (Customer Region) (copia)_4334714669325606920]</field>
+        </drill-path>
+        <drill-path name='Supplier Region H.'>
+          <field>[region]</field>
+          <field>[nation]</field>
+          <field>[supplier]</field>
+        </drill-path>
+        <drill-path name='Type  H.'>
+          <field>[type]</field>
+          <field>[Part (copia 3)_4334714669320278018]</field>
+        </drill-path>
+      </drill-paths>
+      <_.fcp.SchemaViewerObjectModel.false...folder name='Customer' role='dimensions'>
+        <folder-item name='[acctbal (dt_customer)]' type='field' />
+        <folder-item name='[address (dt_customer)]' type='field' />
+        <folder-item name='[name]' type='field' />
+        <folder-item name='[phone (dt_customer)]' type='field' />
+        <folder-item name='Customer Region H.' type='drillpath' />
+        <folder-item name='Mktsegment H.' type='drillpath' />
+      </_.fcp.SchemaViewerObjectModel.false...folder>
+      <_.fcp.SchemaViewerObjectModel.false...folder name='Date' role='dimensions'>
+        <folder-item name='Commit Year  H.' type='drillpath' />
+        <folder-item name='Receipt Year H.' type='drillpath' />
+        <folder-item name='Shipment Year H.' type='drillpath' />
+      </_.fcp.SchemaViewerObjectModel.false...folder>
+      <_.fcp.SchemaViewerObjectModel.false...folder name='Degenerate dimensions' role='dimensions'>
+        <folder-item name='Linestatus H.' type='drillpath' />
+        <folder-item name='Returnflag H.' type='drillpath' />
+        <folder-item name='Shipinstruct H.' type='drillpath' />
+        <folder-item name='Shipmode H.' type='drillpath' />
+      </_.fcp.SchemaViewerObjectModel.false...folder>
+      <_.fcp.SchemaViewerObjectModel.false...folder name='Order' role='dimensions'>
+        <folder-item name='[totalprice]' type='field' />
+        <folder-item name='Clerk H.' type='drillpath' />
+        <folder-item name='Order Year H.' type='drillpath' />
+        <folder-item name='Orderpriority H.' type='drillpath' />
+        <folder-item name='Orderstatus H.' type='drillpath' />
+        <folder-item name='Shippriority H.' type='drillpath' />
+      </_.fcp.SchemaViewerObjectModel.false...folder>
+      <_.fcp.SchemaViewerObjectModel.false...folder name='Part' role='dimensions'>
+        <folder-item name='[retailprice]' type='field' />
+        <folder-item name='[size]' type='field' />
+        <folder-item name='Brand H.' type='drillpath' />
+        <folder-item name='Container  H.' type='drillpath' />
+        <folder-item name='Mfgr  H.' type='drillpath' />
+        <folder-item name='Type  H.' type='drillpath' />
+      </_.fcp.SchemaViewerObjectModel.false...folder>
+      <_.fcp.SchemaViewerObjectModel.false...folder name='Supplier' role='dimensions'>
+        <folder-item name='[acctbal]' type='field' />
+        <folder-item name='[address]' type='field' />
+        <folder-item name='[phone]' type='field' />
+        <folder-item name='Supplier Region H.' type='drillpath' />
+      </_.fcp.SchemaViewerObjectModel.false...folder>
+      <_.fcp.SchemaViewerObjectModel.true...folders-common>
+        <folder name='Customer'>
+          <folder-item name='[acctbal (dt_customer)]' type='field' />
+          <folder-item name='[address (dt_customer)]' type='field' />
+          <folder-item name='[name]' type='field' />
+          <folder-item name='[phone (dt_customer)]' type='field' />
+          <folder-item name='Customer Region H.' type='drillpath' />
+          <folder-item name='Mktsegment H.' type='drillpath' />
+        </folder>
+        <folder name='Date'>
+          <folder-item name='Commit Year  H.' type='drillpath' />
+          <folder-item name='Receipt Year H.' type='drillpath' />
+          <folder-item name='Shipment Year H.' type='drillpath' />
+        </folder>
+        <folder name='Degenerate dimensions'>
+          <folder-item name='Linestatus H.' type='drillpath' />
+          <folder-item name='Returnflag H.' type='drillpath' />
+          <folder-item name='Shipinstruct H.' type='drillpath' />
+          <folder-item name='Shipmode H.' type='drillpath' />
+        </folder>
+        <folder name='Order'>
+          <folder-item name='[totalprice]' type='field' />
+          <folder-item name='Clerk H.' type='drillpath' />
+          <folder-item name='Order Year H.' type='drillpath' />
+          <folder-item name='Orderpriority H.' type='drillpath' />
+          <folder-item name='Orderstatus H.' type='drillpath' />
+          <folder-item name='Shippriority H.' type='drillpath' />
+        </folder>
+        <folder name='Part'>
+          <folder-item name='[retailprice]' type='field' />
+          <folder-item name='[size]' type='field' />
+          <folder-item name='Brand H.' type='drillpath' />
+          <folder-item name='Container  H.' type='drillpath' />
+          <folder-item name='Mfgr  H.' type='drillpath' />
+          <folder-item name='Type  H.' type='drillpath' />
+        </folder>
+        <folder name='Supplier'>
+          <folder-item name='[acctbal]' type='field' />
+          <folder-item name='[address]' type='field' />
+          <folder-item name='[phone]' type='field' />
+          <folder-item name='Supplier Region H.' type='drillpath' />
+        </folder>
+      </_.fcp.SchemaViewerObjectModel.true...folders-common>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' rowDisplayCount='10000' show-aliased-fields='true' show-structure='false' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:region:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;AMERICA&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;AFRICA&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;EUROPE&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;ASIA&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;MIDDLE EAST&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Italy&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='quantity' />
+        <field-sort-custom-order field='Calculation_706502220852924417' />
+        <field-sort-custom-order field='extendedprice' />
+        <field-sort-custom-order field='discount' />
+        <field-sort-custom-order field='tax' />
+        <field-sort-custom-order field='Calculation_4334714669669527568' />
+        <field-sort-custom-order field='returnflag' />
+        <field-sort-custom-order field='linestatus' />
+      </field-sort-info>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='dt_customer' id='dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312'>
+            <properties context=''>
+              <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_customer' table='[bi00].[dt_customer]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_date_commit' id='dt_date (bi00.dt_date)_194387237D294DC4B7505F8DD63DFD77'>
+            <properties context=''>
+              <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_date3' table='[bi00].[dt_date]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_date_shipment' id='dt_date (bi00.dt_date)_3ACE19E428C74B70828434A6D80B9D7E'>
+            <properties context=''>
+              <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_date1' table='[bi00].[dt_date]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_date_receipt' id='dt_date (bi00.dt_date)_4D68D65AC39444379CAE16B9627975F1'>
+            <properties context=''>
+              <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_date2' table='[bi00].[dt_date]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_date' id='dt_date (bi00.dt_date)_E3A84BE46E6041B0BAFD26F9DF15EB2D'>
+            <properties context=''>
+              <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_date' table='[bi00].[dt_date]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_order' id='dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF'>
+            <properties context=''>
+              <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_order' table='[bi00].[dt_order]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_part' id='dt_part (bi00.dt_part)_F8D9B31FDF9C4175BF5F848BFA7965BF'>
+            <properties context=''>
+              <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_part' table='[bi00].[dt_part]' type='table' />
+            </properties>
+          </object>
+          <object caption='dt_supplier' id='dt_supplier (bi00.dt_supplier)_086EED57F78E4BADBB9B73EFEF5DCED5'>
+            <properties context=''>
+              <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='dt_supplier' table='[bi00].[dt_supplier]' type='table' />
+            </properties>
+          </object>
+          <object caption='ft' id='ft (bi00.ft)_80CD72679C0147C1A486A54516198496'>
+            <properties context=''>
+              <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='ft' table='[bi00].[ft]' type='table' />
+            </properties>
+          </object>
+          <object caption='jdt_shipment' id='jdt_shipment (bi00.jdt_shipment)_1539271B3308450398D3B816B8A4080E'>
+            <properties context=''>
+              <relation connection='postgres.0nhtpha0rdxf4b14l6tm60go280j' name='jdt_shipment' table='[bi00].[jdt_shipment]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[id_customer]' />
+              <expression op='[id (dt_customer)]' />
+            </expression>
+            <first-end-point object-id='dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_customer (bi00.dt_customer)_B52122AD1D5943D682BA8F19DFA19312' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[id_commitdate]' />
+              <expression op='[id (dt_date3)]' />
+            </expression>
+            <first-end-point object-id='ft (bi00.ft)_80CD72679C0147C1A486A54516198496' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_date (bi00.dt_date)_194387237D294DC4B7505F8DD63DFD77' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[id_shipdate]' />
+              <expression op='[id (dt_date1)]' />
+            </expression>
+            <first-end-point object-id='ft (bi00.ft)_80CD72679C0147C1A486A54516198496' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_date (bi00.dt_date)_3ACE19E428C74B70828434A6D80B9D7E' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[id_receiptdate]' />
+              <expression op='[id (dt_date2)]' />
+            </expression>
+            <first-end-point object-id='ft (bi00.ft)_80CD72679C0147C1A486A54516198496' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_date (bi00.dt_date)_4D68D65AC39444379CAE16B9627975F1' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[id_date]' />
+              <expression op='[id (dt_date)]' />
+            </expression>
+            <first-end-point object-id='dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_date (bi00.dt_date)_E3A84BE46E6041B0BAFD26F9DF15EB2D' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[id_order]' />
+              <expression op='[id (dt_order)]' />
+            </expression>
+            <first-end-point object-id='ft (bi00.ft)_80CD72679C0147C1A486A54516198496' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_order (bi00.dt_order)_4C01B8F6ADA64C8CA060CC720C32DFCF' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[id_part]' />
+              <expression op='[id]' />
+            </expression>
+            <first-end-point object-id='ft (bi00.ft)_80CD72679C0147C1A486A54516198496' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_part (bi00.dt_part)_F8D9B31FDF9C4175BF5F848BFA7965BF' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[id_supplier]' />
+              <expression op='[id (dt_supplier)]' />
+            </expression>
+            <first-end-point object-id='ft (bi00.ft)_80CD72679C0147C1A486A54516198496' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='dt_supplier (bi00.dt_supplier)_086EED57F78E4BADBB9B73EFEF5DCED5' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[id_shipment]' />
+              <expression op='[id (jdt_shipment)]' />
+            </expression>
+            <first-end-point object-id='ft (bi00.ft)_80CD72679C0147C1A486A54516198496' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='jdt_shipment (bi00.jdt_shipment)_1539271B3308450398D3B816B8A4080E' unique-key='true' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Foglio 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows total='true' />
+        <cols />
+      </table>
+      <simple-id uuid='{FB9C0083-0E25-41B9-BC2F-72F8CED05C99}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Foglio 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[Worst Suppliers]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[io:Worst Suppliers:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:brand:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:clerk:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:container:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:linestatus:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:mfgr:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:nation:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:orderpriority:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:orderstatus:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:region:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:returnflag:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:shipinstruct:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:shipmode:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:shippriority:ok]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:supplier:nk]</field>
+            <field>[federated.16la2my0mmd4zl1ev28e21v4k4y0].[none:type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{F468EB89-5362-4D16-893C-3622B5467BCF}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Foglio 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
