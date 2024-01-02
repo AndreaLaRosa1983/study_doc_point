@@ -1,0 +1,21 @@
+ESERCIZI SELEZIONATI DEL LIBRO Huth-Ryan CHE RIGUARDANO 
+GLI ARGOMENTI TRATTATI A LEZIONE
+
+LE SOLUZIONI DEGLI ESERCIZI CHE NEL LIBRO HANNO UN *
+SI TROVANO NEL FILE ALLEGATO
+
+LOGICA PROPOSIZIONALE
+1.1 (tutti)
+1.5.2
+
+LOGICA DEI PREDICATI
+2.1 (tutti)
+2.4 (tutti a parte 2.4.1)
+
+LINEAR TIME LOGIC
+3.2.2 (interpretando il modello M come il marking graph 
+di una rete di Petri con piazze "a" e "b", dove la barra 
+sopra "a" o "b" indica l'assenza del token nella piazza:
+fate (i) e (ii) per ogni formula, (ii) chiede semplicemente 
+se tale marking graph M soddisfa la formula)
+

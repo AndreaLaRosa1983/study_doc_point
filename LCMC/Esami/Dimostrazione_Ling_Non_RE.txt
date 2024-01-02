@@ -1,0 +1,60 @@
+Dimostrare che un linguaggio non è ricorsivamente enumerabile
+
+La tecnica per dimostrare che un L è non RE è sempre quella di rifarsi a proprietà di linguaggi noti (ad esempio tramite riduzione).
+
+Ad esempio, se si riesce a costruire una riduzione da L_d (il linguaggio complemento della diagonale, che abbiamo dimostrato a lezione essere non RE) ad L tale che, ipotizzando per assurdo L RE, si ottenga una procedura per L_d, allora si ha un assurdo e si ha dimostrato che L è non RE.
+
+
+
+
+
+
+
+esempio di esercizio riguardante linguaggi non ricorsivamente enumerabili. 
+
+Si consideri il problema di classificare il linguaggio:
+L= {w_k | considerata (x,y) decodifica di k si ha che L(M_x) e L(M_y) 
+**non** hanno stringhe in comune}
+
+**L non e' Ricorsivamente Enumerabile**
+
+Mi chiedo se ci sia un linguaggio che so essere non ricorsivmente 
+enumerabile che si riduce a L: cioè ipotizzando per assurdo che ci sia 
+una procedura (TM) che riconosce L allora otterrei una procedura (TM) 
+che riconosce il linguaggio noto.
+
+In questo caso basta considerare L_d
+L_d= {w_x | w_x non appartiene a L(M_x)}
+
+La riduzione da L_d ad L è la seguente.
+Per stabilire se w_x sta in L_d pongo:
+y=indice di una qualsiasi TM tale che L(M_y)={w_x}
+e poi uso una ipotetica procedura (TM) che riconosce L dandogli in input w_k dove k è la codifica di (x,y) 
+(qualora stia in L la procedura termina accettando altrimenti la procedura può non terminare o bloccarsi)
+
+Ho che:
+w_k appartiene a L se e solo se L(M_x) e L(M_y)={w_x} non hanno stringhe in comune, cioè w_x non appartiene a L(M_x)
+
+Quindi ipotizzando di avere una procedura (TM) che riconosce L avrei una procedura (TM) che riconosce L_d: assurdo!
+
+---------------------------
+
+C'è anche un altro modo per mostrare che L è non Ricorsivamente Enumerabile.
+
+Basta mostrare:
+1) che il complementare di L cioè:
+   {w_k | considerata (x,y) decodifica di k si ha che L(M_x) e 
+    L(M_y) hanno stringhe in comune}
+   è Ricorsivamente Enumerabile
+   (la dimostrazione è come quella che abbiamo fatto per l'esercizio 
+    5 del facsimile di compito dove si considera un linguaggio analogo)
+2) che L è non Ricorsivo
+   (la dimostrazione è come quella che abbiamo fatto per l'esercizio   
+    5 del facsimile di compito)
+
+Abbiamo visto a lezione un teorema che dice:
+se un linguaggio L è RE ed anche il complementare di L è RE allora si ha che L è Ricorsivo
+
+Quindi, per assurdo, se il nostro L fosse Ricorsivamente Enumerabile 
+allora, visto che sappiamo che il suo complementare è Ricorsivamente 
+Enumerabile, allora avremmo che L sarebbe Ricorsivo (assurdo)
