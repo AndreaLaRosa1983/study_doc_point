@@ -16,7 +16,7 @@ const registerUser = (req, res) => {
 
   // Registra il nuovo utente
   const newUser = { username, password, role: 'user' };
-  const fakevariabletest = { username, password};
+  
   users.push(newUser); // qui va fatto l'inserimento su dynamo db
 
   res.json({ message: 'Registrazione utente avvenuta con successo', user: newUser });
