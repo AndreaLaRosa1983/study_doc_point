@@ -47,14 +47,14 @@ app.post('/login', async (req, res) => {
     } else {
       if (authResult) {
         // Autenticazione riuscita, restituisci il token e i dati dell'utente al client
-        res.json({ token: authResult.token, user: authResult.user });
+        res.json({ token: authResult.token });
       } else {
         // Credenziali non valide
         res.status(401).json({ error: 'Credenziali non valide' });
       }
     }
   });
-});
+})
 
 // ...
 

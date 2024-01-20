@@ -3,6 +3,10 @@ const AWS = require('aws-sdk');
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
+const jwt = require('./jwt');
+
+
+
 const docClient = new AWS.DynamoDB.DocumentClient();
 
 const hashPassword = async (password) => {
@@ -186,50 +190,18 @@ let deleteUser = (userID, callback) => {
   });
 }
 
-/*
-let authenticateUser = async (email, password, callback) => {
-  try {
-    // Ottieni l'utente tramite l'email
-    const userData = await getUserByEmail(email);
-    console.log("Qui in autenticate " + JSON.stringify(userData));
-    if (userData) {
-      // L'utente è stato trovato, verifica la password
-      console.log("qui entro 0");
-      const storedPassword = userData.Password;
-      const passwordMatch = await bcrypt.compare(password, storedPassword);
 
-      if (passwordMatch) {
-        console.log("Qui in autenticate 1");
-        // La password è corretta, restituisci l'utente autenticato
-        callback(null, userData);
-      } else {
-        // La password non corrisponde
-        console.log("Qui in autenticate 2");
-        callback(null, null);
-      }
-    } else {
-      // L'utente non è stato trovato con l'email specificata
-      console.log("Qui in autenticate 3");
-      callback(null, null);
-    }
-  } catch (error) {
-    console.error('Errore durante l\'autenticazione:', error);
-    callback(error, null);
-  }
-};
-*/
 
 let authenticateUser = async (email, password, callback) => {
   try {
     // Ottieni l'utente tramite l'email
     const userData = await getUserByEmail(email);
-    console.log("Qui in authenticate " + JSON.stringify(userData));
+
     if (userData) {
       // L'utente è stato trovato, verifica la password
       const storedPassword = userData.Password;
       const passwordMatch = await bcrypt.compare(password, storedPassword);
-      console.log("storepw" + storedPassword);
-      console.log("pwmatch" + passwordMatch);
+
       if (passwordMatch) {
         console.log("Qui in authenticate 1");
 
@@ -237,7 +209,7 @@ let authenticateUser = async (email, password, callback) => {
         const token = jwt.setToken(userData.UserID, userData.Email);
 
         // Invia il token al frontend
-        callback(null, { user: userData, token: token });
+        callback(null, { token: token });
       } else {
         // La password non corrisponde
         console.log("Qui in authenticate 2");
