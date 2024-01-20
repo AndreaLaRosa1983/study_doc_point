@@ -245,7 +245,7 @@ let authenticateUser = async (email, password, callback) => {
       }
     } else {
       // L'utente non è stato trovato con l'email specificata
-      console.log("Qui in authenticate 3");
+      console.log("Qui in authenticate 3...");
       callback(null, null);
     }
   } catch (error) {
