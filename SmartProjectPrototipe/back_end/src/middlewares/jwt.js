@@ -1,6 +1,8 @@
 var jwt = require('jsonwebtoken');
+let fs = require('fs');
+let options = { algorithm : "RS256", expiresIn : "1h"}
 
-let options = { algorithm : "HS256", expiresIn : "1h"}
+
 let getPayload = (token) => {
     var decode = jwt.decode(token, { complete: true});
     return decode.payload;
@@ -8,18 +10,19 @@ let getPayload = (token) => {
 
 
 let setToken = (id,username) => {
-  
        let payload = {
             id: id,
             username: username,
         }
-         
-        var token = jwt.sign(payload,"chiaveSegreta", options);
+        let privateKey = fs.readFileSync(".\\rsa.key");
+        var token = jwt.sign(payload, privateKey, options);
         return token;
 }
 
+
 let checkToken = (token) => {
-    return jwt.verify(token,"chiaveSegreta", options )
+    let publicKey = fs.readFileSync(".\\rsa.pem");
+    return jwt.verify(token, publicKey, options);
 }
 
 module.exports = {setToken, getPayload, checkToken}
