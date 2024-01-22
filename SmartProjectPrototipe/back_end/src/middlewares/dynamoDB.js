@@ -5,8 +5,6 @@ const bcrypt = require('bcryptjs');
 require('dotenv').config();
 const jwt = require('./jwt');
 
-
-
 const docClient = new AWS.DynamoDB.DocumentClient();
 
 const hashPassword = async (password) => {
@@ -30,9 +28,8 @@ let checkEmail = (email, callback) => {
   };
 
   docClient.get(params, (err, data) => {
-    console.log("params dentro la call : " + JSON.stringify(params))
     if (err) {
-      console.error('Errore nella lettura dalla tabella Email: sono qui', JSON.stringify(err, null, 2));
+      console.error('Errore nella lettura dalla tabella Email:', JSON.stringify(err, null, 2));
       callback(err, null);
     } else {
       callback(null, data.Item); // Passa direttamente l'item trovato alla callback
@@ -41,7 +38,7 @@ let checkEmail = (email, callback) => {
 }
 
 // Funzione per ottenere l'utente tramite l'email
-let getUserByEmail = async (email) => {
+let getUserByEmail = async (email, requestingUser) => {
   try {
     const emailItem = await checkEmailAsync(email);
 
@@ -63,6 +60,11 @@ let getUserByEmail = async (email) => {
 
     console.log('Dati utente letti dalla tabella User:', JSON.stringify(userData, null, 2));
 
+    // Verifica le autorizzazioni prima di restituire i dati utente
+    if (!checkUserPermissions(userData.Item, userID, requestingUser)) {
+      return null;
+    }
+
     return userData.Item;
   } catch (error) {
     console.error('Errore nella lettura dell\'utente dalla tabella User:', error);
@@ -78,12 +80,9 @@ let checkEmailAsync = async (email) => {
   };
 
   const data = await docClient.get(params).promise();
-  
+
   return data.Item;
 };
-
-
-
 
 // Funzione per l'inserimento di un nuovo utente
 let insertUser = (user, callback) => {
@@ -101,7 +100,17 @@ let insertUser = (user, callback) => {
         user.UserID = uuidv4();
         const hashedPassword = await hashPassword(user.Password);
         user.Password = hashedPassword;
-        console.log("hashedPW: " +  hashedPassword);
+        console.log("hashedPW: " + hashedPassword);
+
+        // Inizializza la lista delle conditions
+        const conditions = [];
+
+        // Aggiungi l'attributo Medical
+        user.Medical = user.Medical || false;
+
+        // Aggiungi l'attributo Conditions all'utente
+        user.Conditions = conditions;
+
         const paramsUser = {
           TableName: 'User_Table',
           Item: user,
@@ -139,24 +148,30 @@ let insertUser = (user, callback) => {
   });
 }
 
-
 // Funzione per l'aggiornamento di un utente esistente
-let updateUser = (user, callback) => {
+let updateUser = (user, userID, requestingUser, callback) => {
+  // Verifica le autorizzazioni prima di procedere con l'aggiornamento
+  if (!checkUserPermissions(user, userID, requestingUser)) {
+    return callback({ message: 'Accesso non autorizzato' }, null);
+  }
+
   const params = {
     TableName: 'User_Table',
     Key: {
       'UserID': user.UserID,
     },
-    UpdateExpression: 'SET #name = :name, #age = :age', // Aggiorna i campi necessari
+    UpdateExpression: 'SET #name = :name, #age = :age, #conditions = :conditions',
     ExpressionAttributeNames: {
       '#name': 'Name',
       '#age': 'Age',
+      '#conditions': 'Conditions',
     },
     ExpressionAttributeValues: {
       ':name': user.Name,
       ':age': user.Age,
+      ':conditions': user.Conditions || [],
     },
-    ReturnValues: 'ALL_NEW', // Restituisce i valori aggiornati
+    ReturnValues: 'ALL_NEW',
   };
 
   docClient.update(params, (err, data) => {
@@ -171,11 +186,16 @@ let updateUser = (user, callback) => {
 }
 
 // Funzione per l'eliminazione di un utente
-let deleteUser = (userID, callback) => {
+let deleteUser = (user, userID, requestingUser, callback) => {
+  // Verifica le autorizzazioni prima di procedere con l'eliminazione
+  if (!checkUserPermissions(user, userID, requestingUser)) {
+    return callback({ message: 'Accesso non autorizzato' });
+  }
+
   const params = {
     TableName: 'User_Table',
     Key: {
-      'UserID': userID,
+      'UserID': user.UserID,
     },
   };
 
@@ -190,6 +210,42 @@ let deleteUser = (userID, callback) => {
   });
 }
 
+// Funzione per ottenere l'utente tramite l'ID
+let getUserById = async (userID, requestingUser) => {
+  const userParams = {
+    TableName: 'User_Table',
+    Key: {
+      'UserID': userID,
+    },
+  };
+
+  try {
+    const userData = await docClient.get(userParams).promise();
+
+    console.log('Dati utente letti dalla tabella User:', JSON.stringify(userData, null, 2));
+
+    // Verifica le autorizzazioni prima di restituire i dati utente
+    if (!checkUserPermissions(userData.Item, userID, requestingUser)) {
+      return null;
+    }
+
+    return userData.Item;
+  } catch (error) {
+    console.error('Errore nella lettura dell\'utente dalla tabella User:', error);
+    throw error;
+  }
+}
+
+// Funzione per verificare le autorizzazioni dell'utente
+let checkUserPermissions = (user, userID, requestingUser) => {
+  // Se l'utente richiedente è un medico o un super utente, permetti l'accesso
+  if (requestingUser.role === 'medical' || requestingUser.role === 'super') {
+    return true;
+  }
+
+  // Se l'utente richiedente è un utente normale, verifica che l'ID corrisponda
+  return user.UserID === userID;
+}
 
 
 let authenticateUser = async (email, password, callback) => {
@@ -226,22 +282,12 @@ let authenticateUser = async (email, password, callback) => {
   }
 };
 
-
-let getUserById = async (userID) => {
-  const userParams = {
-    TableName: 'User_Table',
-    Key: {
-      'UserID': userID,
-    },
-  };
-
-  const userData = await docClient.get(userParams).promise();
-
-  console.log('Dati utente letti dalla tabella User:', JSON.stringify(userData, null, 2));
-
-  return userData.Item;
+module.exports = {
+  hashPassword,
+  getUserByEmail,
+  insertUser,
+  updateUser,
+  deleteUser,
+  authenticateUser,
+  getUserById,
 };
-
-
-
-module.exports = { getUserByEmail, getUserById, insertUser, updateUser, deleteUser, authenticateUser };
