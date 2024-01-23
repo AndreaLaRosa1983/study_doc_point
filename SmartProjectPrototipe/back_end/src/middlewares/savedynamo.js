@@ -112,7 +112,7 @@ let insertUser = (user, callback) => {
         const conditions = [];
 
         // Aggiungi l'attributo Conditions all'utente
-        user.Conditions = conditions;
+        user.conditions = conditions;
 
         const paramsUser = {
           TableName: 'User_Table',
@@ -304,7 +304,7 @@ let updateConditions = async (userID, role, conditions, callback) => {
         throw { message: 'Accesso non autorizzato' };
       }
       console.log("sono qui dentro 2");
-      const updatedUser = { ...user, Conditions: conditions };
+      const updatedUser = { ...user, conditions: conditions };
       console.log("sono qui dentro 3");
       const updatedUserData = await updateUser(updatedUser, userID, role);
       console.log("sono dentro 4");

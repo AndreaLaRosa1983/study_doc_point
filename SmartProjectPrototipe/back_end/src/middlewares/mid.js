@@ -3,6 +3,7 @@ const jwt = require('./jwt');
 const checkAuth = (req,res,next) => {
     try {
         if (req.headers['authorization'] == null) {
+            console.log("eccolo");
             res.sendStatus(401);
         } else {
             let token = req.headers['authorization'];

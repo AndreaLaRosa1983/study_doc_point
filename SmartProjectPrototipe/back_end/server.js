@@ -4,7 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const userRoutes = require('./src/routes/userRoutes');
 const mid = require('./src/middlewares/mid');
-const dynamoDB = require('./src/middlewares/dynamoDB');
+const dynamoDB = require('./src/controllers/dynamoDB');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -15,18 +15,19 @@ app.use(bodyParser.json());
 
 // Middleware per verificare l'autenticazione in tutte le route tranne /login
 app.use((req, res, next) => {
-  if (req.path !== '/login') {
+  if (req.path !== '/login' && req.path !== '/register') {
     mid.checkAuth(req, res, next);
   } else {
     next();
   }
 });
 
-// Route per gestire la registrazione di un nuovo utente
+
 app.post('/register', async (req, res) => {
   const userData = req.body;
 
   try {
+    console.log(userData);
     const newUser = await dynamoDB.insertUser(userData);
     if (newUser) {
       res.status(201).json({ message: 'Utente registrato con successo', user: newUser });
@@ -37,11 +38,12 @@ app.post('/register', async (req, res) => {
     console.error('Errore durante la registrazione dell\'utente:', error);
     res.status(500).json({ error: 'Errore durante la registrazione dell\'utente' });
   }
-});
+})
+
 
 // Route per ottenere i dettagli di un utente
-app.get('/user/:userID', [mid.checkAuth], async (req, res) => {
-  const userID = req.params.userID;
+app.get('/user', [mid.checkAuth], async (req, res) => {
+  const userID = req.body.userID;
 
   try {
     const user = await dynamoDB.getUserById(userID, 'user');
@@ -57,8 +59,8 @@ app.get('/user/:userID', [mid.checkAuth], async (req, res) => {
 });
 
 // Route per aggiornare i dettagli di un utente
-app.put('/user/:userID', [mid.checkAuth], async (req, res) => {
-  const userID = req.params.userID;
+app.put('/user', [mid.checkAuth], async (req, res) => {
+  const userID = req.body.userID;
   const updatedUserData = req.body;
 
   try {
@@ -75,8 +77,8 @@ app.put('/user/:userID', [mid.checkAuth], async (req, res) => {
 });
 
 // Route per eliminare un utente
-app.delete('/user/:userID', [mid.checkAuth], async (req, res) => {
-  const userID = req.params.userID;
+app.delete('/user', [mid.checkAuth], async (req, res) => {
+  const userID = req.body.userID;
 
   try {
     await dynamoDB.deleteUser(userID, 'user', 'user');
@@ -88,13 +90,13 @@ app.delete('/user/:userID', [mid.checkAuth], async (req, res) => {
 });
 
 // Route per ottenere le condizioni di un utente
-app.get('/user/:userID/conditions', [mid.checkAuth], async (req, res) => {
-  const userID = req.params.userID;
+app.get('/user/conditions', [mid.checkAuth], async (req, res) => {
+  const userID = req.body.userID;
 
   try {
     const user = await dynamoDB.getUserById(userID, 'user');
     if (user) {
-      res.status(200).json({ conditions: user.Conditions });
+      res.status(200).json({ conditions: user.conditions });
     } else {
       res.status(404).json({ error: 'Utente non trovato' });
     }
@@ -105,12 +107,11 @@ app.get('/user/:userID/conditions', [mid.checkAuth], async (req, res) => {
 });
 
 // Route per aggiornare le condizioni di un utente
-app.put('/user/:userID/conditions', [mid.checkAuth], async (req, res) => {
-  const userID = req.params.userID;
-  const conditions = req.body;
+app.put('/user/conditions', [mid.checkAuth], async (req, res) => {
+  const { user_id, conditions, role } = req.body;
 
   try {
-    const updatedUserData = await dynamoDB.updateConditions(userID, 'user', conditions);
+    const updatedUserData = await dynamoDB.updateConditions(user_id, role, conditions);
     if (updatedUserData) {
       res.status(200).json({ updatedUserData });
     } else {
@@ -119,6 +120,23 @@ app.put('/user/:userID/conditions', [mid.checkAuth], async (req, res) => {
   } catch (error) {
     console.error('Errore durante l\'aggiornamento delle condizioni dell\'utente:', error);
     res.status(500).json({ error: 'Errore durante l\'aggiornamento delle condizioni dell\'utente' });
+  }
+});
+
+// Route per effettuare il login
+app.post('/login', async (req, res) => {
+  const { email, password, role } = req.body;
+  console.log("log del req" + req.body);
+  try {
+    const authResult = await dynamoDB.authenticateUser(email, password, role);
+    if (authResult) {
+      res.json({ token: authResult.token, user_id: authResult.user_id });
+    } else {
+      res.status(401).json({ error: 'Credenziali non valide' });
+    }
+  } catch (error) {
+    console.error('Errore durante l\'autenticazione:', error);
+    res.status(500).json({ error: 'Errore durante l\'autenticazione' });
   }
 });
 

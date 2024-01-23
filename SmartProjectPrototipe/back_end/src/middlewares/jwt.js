@@ -1,6 +1,6 @@
 var jwt = require('jsonwebtoken');
 let fs = require('fs');
-let options = { algorithm : "RS256", expiresIn : "1h"}
+let options = { algorithm : "RS256", expiresIn : "2h"}
 
 
 let getPayload = (token) => {

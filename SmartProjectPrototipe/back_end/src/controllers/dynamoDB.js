@@ -2,7 +2,7 @@ const AWS = require('aws-sdk');
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
-const jwt = require('./jwt');
+const jwt = require('../middlewares/jwt');
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -21,27 +21,27 @@ console.log('Sto provando a connettermi a DynamoDB...');
 
 const checkEmail = async (email) => {
   const params = {
-    Key: { "Email": email },
+    Key: { "email": email },
     TableName: 'Email_Table'
   };
-
+  console.log(JSON.stringify(params));
   try {
     const data = await docClient.get(params).promise();
     return data.Item;
   } catch (err) {
-    console.error('Errore nella lettura dalla tabella Email:', JSON.stringify(err, null, 2));
+    console.error('Errore nella lettura dalla tabella Email:2', JSON.stringify(err, null, 2));
     return null;
   }
 }
 
-const checkUserPermissions = (user, userID, role) => {
+const checkUserPermissions = (user, user_id, role) => {
   // Se l'utente richiedente è un medico o un super utente, permetti l'accesso
   if (role === 'medical' || role === 'super') {
     return true;
   }
 
   // Se l'utente richiedente è un utente normale, verifica che l'ID corrisponda
-  return user.UserID === userID;
+  return user.user_id === user_id;
 };
 
 const getUserByEmail = async (email, requestingUser) => {
@@ -52,23 +52,20 @@ const getUserByEmail = async (email, requestingUser) => {
     return null;
   }
 
-  const userID = emailItem.UserID;
-
+  const user_id = emailItem.user_id;
+  console.log("email " + emailItem.user_id);
   const userParams = {
     TableName: 'User_Table',
     Key: {
-      'UserID': userID,
+      'user_id': user_id,
     }
   };
-
+  console.log("parametri olaaa" + userParams);;
   try {
     const userData = await docClient.get(userParams).promise();
-    console.log('Dati utente letti dalla tabella User:', JSON.stringify(userData, null, 2));
-
-    if (!checkUserPermissions(userData.Item, userID, requestingUser)) {
+    if (!checkUserPermissions(userData.Item, user_id, requestingUser)) {
       return null;
     }
-
     return userData.Item;
   } catch (error) {
     console.error('Errore nella lettura dell\'utente dalla tabella User:', error);
@@ -78,10 +75,10 @@ const getUserByEmail = async (email, requestingUser) => {
 
 const checkEmailAsync = async (email) => {
   const params = {
-    Key: { "Email": email },
+    Key: { "email": email },
     TableName: 'Email_Table'
   };
-
+  
   try {
     const data = await docClient.get(params).promise();
     return data.Item;
@@ -92,18 +89,16 @@ const checkEmailAsync = async (email) => {
 };
 
 const insertUser = async (user) => {
-  const emailItem = await checkEmail(user.Email);
-
+  const emailItem = await checkEmail(user.email);
   if (emailItem) {
-    console.log('L\'indirizzo email esiste già nella tabella Email.');
     return null;
   }
 
-  user.UserID = uuidv4();
-  user.Password = await hashPassword(user.Password);
+  user.user_id = uuidv4();
+  user.password = await hashPassword(user.password);
 
   const conditions = [];
-  user.Conditions = conditions;
+  user.conditions = conditions;
 
   const paramsUser = {
     TableName: 'User_Table',
@@ -117,8 +112,8 @@ const insertUser = async (user) => {
     const paramsEmail = {
       TableName: 'Email_Table',
       Item: {
-        'Email': user.Email,
-        'UserID': user.UserID,
+        'email': user.email,
+        'user_id': user.user_id,
       },
     };
 
@@ -132,23 +127,23 @@ const insertUser = async (user) => {
   }
 }
 
-const updateUser = async (user, userID, role) => {
-  if (!checkUserPermissions(user, userID, role)) {
+const updateUser = async (user, user_id, role) => {
+  if (!checkUserPermissions(user, user_id, role)) {
     throw { message: 'Accesso non autorizzato' };
   }
 
-  if (user.Email && user.Email !== undefined && user.Email !== null) {
+  if (user.email && user.email !== undefined && user.email !== null) {
     const emailParams = {
       TableName: 'Email_Table',
       Key: {
-        'Email': user.Email,
+        'email': user.email,
       },
-      UpdateExpression: 'SET #userId = :userId',
+      UpdateExpression: 'SET #user_id = :user_id',
       ExpressionAttributeNames: {
-        '#userId': 'UserID',
+        '#user_id': 'user_id',
       },
       ExpressionAttributeValues: {
-        ':userId': userID,
+        ':user_id': user_id,
       },
     };
 
@@ -160,7 +155,7 @@ const updateUser = async (user, userID, role) => {
   let expressionAttributeValues = {};
 
   Object.keys(user).forEach((key) => {
-    if (key !== 'UserID' && key !== 'Password' && user[key] !== undefined && user[key] !== null) {
+    if (key !== 'user_id' && key !== 'password' && user[key] !== undefined && user[key] !== null) {
       updateExpression += ` #${key} = :${key},`;
       expressionAttributeNames[`#${key}`] = key;
       expressionAttributeValues[`:${key}`] = user[key];
@@ -172,7 +167,7 @@ const updateUser = async (user, userID, role) => {
   const params = {
     TableName: 'User_Table',
     Key: {
-      'UserID': user.UserID,
+      'user_id': user.user_id,
     },
     UpdateExpression: updateExpression,
     ExpressionAttributeNames: expressionAttributeNames,
@@ -185,15 +180,15 @@ const updateUser = async (user, userID, role) => {
   return data.Attributes;
 };
 
-const deleteUser = async (user, userID, requestingUser) => {
-  if (!checkUserPermissions(user, userID, requestingUser)) {
+const deleteUser = async (user, user_id, requestingUser) => {
+  if (!checkUserPermissions(user, user_id, requestingUser)) {
     throw { message: 'Accesso non autorizzato' };
   }
 
   const params = {
     TableName: 'User_Table',
     Key: {
-      'UserID': user.UserID,
+      'user_id': user.user_id,
     },
   };
 
@@ -206,18 +201,18 @@ const deleteUser = async (user, userID, requestingUser) => {
   }
 }
 
-const getUserById = async (userID, role) => {
+const getUserById = async (user_id, role) => {
   const userParams = {
     TableName: 'User_Table',
     Key: {
-      'UserID': userID,
+      'user_id': user_id,
     },
   };
 
   try {
     const userData = await docClient.get(userParams).promise();
 
-    if (!checkUserPermissions(userData.Item, userID, role)) {
+    if (!checkUserPermissions(userData.Item, user_id, role)) {
       return null;
     }
 
@@ -231,14 +226,14 @@ const getUserById = async (userID, role) => {
 const authenticateUser = async (email, password, role) => {
   try {
     const userData = await getUserByEmail(email, role);
-
+    console.log("userdata:" + userData);
     if (userData) {
-      const storedPassword = userData.Password;
+      const storedPassword = userData.password;
       const passwordMatch = await bcrypt.compare(password, storedPassword);
-
+      console.log("a qui arrivo" + JSON.stringify(userData));
       if (passwordMatch) {
-        const token = jwt.setToken(userData.UserID, userData.Email);
-        return { token: token, userID: userData.UserID };
+        const token = jwt.setToken(userData.user_id, userData.email);
+        return { token: token, user_id: userData.user_id };
       } else {
         console.log("La password non corrisponde");
         return null;
@@ -253,17 +248,17 @@ const authenticateUser = async (email, password, role) => {
   }
 };
 
-const updateConditions = async (userID, role, conditions) => {
+const updateConditions = async (user_id, role, conditions) => {
   try {
-    const user = await getUserById(userID, role);
+    const user = await getUserById(user_id, role);
 
     if (user) {
-      if (!checkUserPermissions(user, userID, role)) {
+      if (!checkUserPermissions(user, user_id, role)) {
         throw { message: 'Accesso non autorizzato' };
       }
 
-      const updatedUser = { ...user, Conditions: conditions };
-      const updatedUserData = await updateUser(updatedUser, userID, role);
+      const updatedUser = { ...user, conditions: conditions };
+      const updatedUserData = await updateUser(updatedUser, user_id, role);
       return { updatedUserData: updatedUserData };
     } else {
       console.log("L'utente non è stato trovato con l'ID specificato");
