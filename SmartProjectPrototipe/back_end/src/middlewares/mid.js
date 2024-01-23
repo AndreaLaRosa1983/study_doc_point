@@ -8,7 +8,6 @@ const checkAuth = (req,res,next) => {
             let token = req.headers['authorization'];
             token = token.slice(7,token.length);
             jwt.checkToken(token);
-            console.log("token client:_" + token);
             next();
         }
     } catch(err) {

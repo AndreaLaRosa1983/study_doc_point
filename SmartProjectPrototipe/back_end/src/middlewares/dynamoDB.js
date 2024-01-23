@@ -1,4 +1,3 @@
-// dynamoDBService.js
 const AWS = require('aws-sdk');
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcryptjs');
@@ -9,58 +8,63 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 
 const hashPassword = async (password) => {
   const saltRounds = 10;
-  const hashedPassword = await bcrypt.hash(password, saltRounds);
-  return hashedPassword;
+  return await bcrypt.hash(password, saltRounds);
 };
 
 AWS.config.update({
   region: process.env.AWS_REGION,
-  accessKeyId: process.env.AWS_REGION,
+  accessKeyId: process.env_REGION,
   secretAccessKey: process.env.AWS_SECRET_KEY,
 });
 
 console.log('Sto provando a connettermi a DynamoDB...');
 
-let checkEmail = (email, callback) => {
-  var params = {
+const checkEmail = async (email) => {
+  const params = {
     Key: { "Email": email },
     TableName: 'Email_Table'
   };
 
-  docClient.get(params, (err, data) => {
-    if (err) {
-      console.error('Errore nella lettura dalla tabella Email:', JSON.stringify(err, null, 2));
-      callback(err, null);
-    } else {
-      callback(null, data.Item); // Passa direttamente l'item trovato alla callback
-    }
-  });
+  try {
+    const data = await docClient.get(params).promise();
+    return data.Item;
+  } catch (err) {
+    console.error('Errore nella lettura dalla tabella Email:', JSON.stringify(err, null, 2));
+    return null;
+  }
 }
 
-// Funzione per ottenere l'utente tramite l'email
-let getUserByEmail = async (email, requestingUser) => {
-  try {
-    const emailItem = await checkEmailAsync(email);
+const checkUserPermissions = (user, userID, role) => {
+  // Se l'utente richiedente è un medico o un super utente, permetti l'accesso
+  if (role === 'medical' || role === 'super') {
+    return true;
+  }
 
-    if (!emailItem) {
-      console.log('Indirizzo email non trovato nella tabella Email.');
-      return null;
+  // Se l'utente richiedente è un utente normale, verifica che l'ID corrisponda
+  return user.UserID === userID;
+};
+
+const getUserByEmail = async (email, requestingUser) => {
+  const emailItem = await checkEmail(email);
+
+  if (!emailItem) {
+    console.log('Indirizzo email non trovato nella tabella Email.');
+    return null;
+  }
+
+  const userID = emailItem.UserID;
+
+  const userParams = {
+    TableName: 'User_Table',
+    Key: {
+      'UserID': userID,
     }
+  };
 
-    const userID = emailItem.UserID;
-
-    const userParams = {
-      TableName: 'User_Table',
-      Key: {
-        'UserID': userID,
-      }
-    };
-
+  try {
     const userData = await docClient.get(userParams).promise();
-
     console.log('Dati utente letti dalla tabella User:', JSON.stringify(userData, null, 2));
 
-    // Verifica le autorizzazioni prima di restituire i dati utente
     if (!checkUserPermissions(userData.Item, userID, requestingUser)) {
       return null;
     }
@@ -72,124 +76,118 @@ let getUserByEmail = async (email, requestingUser) => {
   }
 };
 
-// Funzione ausiliaria per il check dell'email
-let checkEmailAsync = async (email) => {
+const checkEmailAsync = async (email) => {
   const params = {
     Key: { "Email": email },
     TableName: 'Email_Table'
   };
 
-  const data = await docClient.get(params).promise();
-
-  return data.Item;
+  try {
+    const data = await docClient.get(params).promise();
+    return data.Item;
+  } catch (error) {
+    console.error('Errore nella lettura dalla tabella Email:', JSON.stringify(error, null, 2));
+    throw error;
+  }
 };
 
-// Funzione per l'inserimento di un nuovo utente
-let insertUser = (user, callback) => {
-  // Verifica se l'email esiste già nella tabella delle email
-  checkEmail(user.Email, async (err, emailItem) => {
-    if (err) {
-      callback(err, null);
-    } else {
-      if (emailItem) {
-        // L'email esiste già, quindi non possiamo inserire un nuovo utente
-        console.log('L\'indirizzo email esiste già nella tabella Email.');
-        callback(null, null);
-      } else {
-        // L'email non esiste, possiamo procedere con l'inserimento dell'utente
-        user.UserID = uuidv4();
-        const hashedPassword = await hashPassword(user.Password);
-        user.Password = hashedPassword;
-        console.log("hashedPW: " + hashedPassword);
+const insertUser = async (user) => {
+  const emailItem = await checkEmail(user.Email);
 
-        // Inizializza la lista delle conditions
-        const conditions = [];
+  if (emailItem) {
+    console.log('L\'indirizzo email esiste già nella tabella Email.');
+    return null;
+  }
 
-        // Aggiungi l'attributo Medical
-        user.Medical = user.Medical || false;
+  user.UserID = uuidv4();
+  user.Password = await hashPassword(user.Password);
 
-        // Aggiungi l'attributo Conditions all'utente
-        user.Conditions = conditions;
+  const conditions = [];
+  user.Conditions = conditions;
 
-        const paramsUser = {
-          TableName: 'User_Table',
-          Item: user,
-        };
+  const paramsUser = {
+    TableName: 'User_Table',
+    Item: user,
+  };
 
-        docClient.put(paramsUser, (err) => {
-          if (err) {
-            console.error('Errore nell\'inserimento dell\'utente:', JSON.stringify(err, null, 2));
-            callback(err, null);
-          } else {
-            console.log('Utente inserito con successo:', JSON.stringify(paramsUser.Item, null, 2));
+  try {
+    await docClient.put(paramsUser).promise();
+    console.log('Utente inserito con successo:', JSON.stringify(paramsUser.Item, null, 2));
 
-            // Ora aggiungiamo l'email nella tabella delle email
-            const paramsEmail = {
-              TableName: 'Email_Table',
-              Item: {
-                'Email': user.Email,
-                'UserID': user.UserID,
-              },
-            };
+    const paramsEmail = {
+      TableName: 'Email_Table',
+      Item: {
+        'Email': user.Email,
+        'UserID': user.UserID,
+      },
+    };
 
-            docClient.put(paramsEmail, (err) => {
-              if (err) {
-                console.error('Errore nell\'inserimento dell\'email:', JSON.stringify(err, null, 2));
-                callback(err, null);
-              } else {
-                console.log('Email inserita con successo nella tabella Email.');
-                callback(null, paramsUser.Item);
-              }
-            });
-          }
-        });
-      }
-    }
-  });
+    await docClient.put(paramsEmail).promise();
+    console.log('Email inserita con successo nella tabella Email.');
+
+    return paramsUser.Item;
+  } catch (err) {
+    console.error('Errore nell\'inserimento dell\'utente:', JSON.stringify(err, null, 2));
+    throw err;
+  }
 }
 
-// Funzione per l'aggiornamento di un utente esistente
-let updateUser = (user, userID, requestingUser, callback) => {
-  // Verifica le autorizzazioni prima di procedere con l'aggiornamento
-  if (!checkUserPermissions(user, userID, requestingUser)) {
-    return callback({ message: 'Accesso non autorizzato' }, null);
+const updateUser = async (user, userID, role) => {
+  if (!checkUserPermissions(user, userID, role)) {
+    throw { message: 'Accesso non autorizzato' };
   }
+
+  if (user.Email && user.Email !== undefined && user.Email !== null) {
+    const emailParams = {
+      TableName: 'Email_Table',
+      Key: {
+        'Email': user.Email,
+      },
+      UpdateExpression: 'SET #userId = :userId',
+      ExpressionAttributeNames: {
+        '#userId': 'UserID',
+      },
+      ExpressionAttributeValues: {
+        ':userId': userID,
+      },
+    };
+
+    await docClient.update(emailParams).promise();
+  }
+
+  let updateExpression = 'SET';
+  let expressionAttributeNames = {};
+  let expressionAttributeValues = {};
+
+  Object.keys(user).forEach((key) => {
+    if (key !== 'UserID' && key !== 'Password' && user[key] !== undefined && user[key] !== null) {
+      updateExpression += ` #${key} = :${key},`;
+      expressionAttributeNames[`#${key}`] = key;
+      expressionAttributeValues[`:${key}`] = user[key];
+    }
+  });
+
+  updateExpression = updateExpression.slice(0, -1);
 
   const params = {
     TableName: 'User_Table',
     Key: {
       'UserID': user.UserID,
     },
-    UpdateExpression: 'SET #name = :name, #age = :age, #conditions = :conditions',
-    ExpressionAttributeNames: {
-      '#name': 'Name',
-      '#age': 'Age',
-      '#conditions': 'Conditions',
-    },
-    ExpressionAttributeValues: {
-      ':name': user.Name,
-      ':age': user.Age,
-      ':conditions': user.Conditions || [],
-    },
+    UpdateExpression: updateExpression,
+    ExpressionAttributeNames: expressionAttributeNames,
+    ExpressionAttributeValues: expressionAttributeValues,
     ReturnValues: 'ALL_NEW',
   };
 
-  docClient.update(params, (err, data) => {
-    if (err) {
-      console.error('Errore nell\'aggiornamento dell\'utente:', JSON.stringify(err, null, 2));
-      callback(err, null);
-    } else {
-      console.log('Utente aggiornato con successo:', JSON.stringify(data.Attributes, null, 2));
-      callback(null, data.Attributes);
-    }
-  });
-}
+  const data = await docClient.update(params).promise();
 
-// Funzione per l'eliminazione di un utente
-let deleteUser = (user, userID, requestingUser, callback) => {
-  // Verifica le autorizzazioni prima di procedere con l'eliminazione
+  return data.Attributes;
+};
+
+const deleteUser = async (user, userID, requestingUser) => {
   if (!checkUserPermissions(user, userID, requestingUser)) {
-    return callback({ message: 'Accesso non autorizzato' });
+    throw { message: 'Accesso non autorizzato' };
   }
 
   const params = {
@@ -199,19 +197,16 @@ let deleteUser = (user, userID, requestingUser, callback) => {
     },
   };
 
-  docClient.delete(params, (err) => {
-    if (err) {
-      console.error('Errore nell\'eliminazione dell\'utente:', JSON.stringify(err, null, 2));
-      callback(err);
-    } else {
-      console.log('Utente eliminato con successo.');
-      callback(null);
-    }
-  });
+  try {
+    await docClient.delete(params).promise();
+    console.log('Utente eliminato con successo.');
+  } catch (err) {
+    console.error('Errore nell\'eliminazione dell\'utente:', JSON.stringify(err, null, 2));
+    throw err;
+  }
 }
 
-// Funzione per ottenere l'utente tramite l'ID
-let getUserById = async (userID, requestingUser) => {
+const getUserById = async (userID, role) => {
   const userParams = {
     TableName: 'User_Table',
     Key: {
@@ -222,10 +217,7 @@ let getUserById = async (userID, requestingUser) => {
   try {
     const userData = await docClient.get(userParams).promise();
 
-    console.log('Dati utente letti dalla tabella User:', JSON.stringify(userData, null, 2));
-
-    // Verifica le autorizzazioni prima di restituire i dati utente
-    if (!checkUserPermissions(userData.Item, userID, requestingUser)) {
+    if (!checkUserPermissions(userData.Item, userID, role)) {
       return null;
     }
 
@@ -236,49 +228,50 @@ let getUserById = async (userID, requestingUser) => {
   }
 }
 
-// Funzione per verificare le autorizzazioni dell'utente
-let checkUserPermissions = (user, userID, requestingUser) => {
-  // Se l'utente richiedente è un medico o un super utente, permetti l'accesso
-  if (requestingUser.role === 'medical' || requestingUser.role === 'super') {
-    return true;
-  }
-
-  // Se l'utente richiedente è un utente normale, verifica che l'ID corrisponda
-  return user.UserID === userID;
-}
-
-
-let authenticateUser = async (email, password, callback) => {
+const authenticateUser = async (email, password, role) => {
   try {
-    // Ottieni l'utente tramite l'email
-    const userData = await getUserByEmail(email);
+    const userData = await getUserByEmail(email, role);
 
     if (userData) {
-      // L'utente è stato trovato, verifica la password
       const storedPassword = userData.Password;
       const passwordMatch = await bcrypt.compare(password, storedPassword);
 
       if (passwordMatch) {
-        console.log("Qui in authenticate 1");
-
-        // Genera un token JWT
         const token = jwt.setToken(userData.UserID, userData.Email);
-
-        // Invia il token al frontend
-        callback(null, { token: token });
+        return { token: token, userID: userData.UserID };
       } else {
-        // La password non corrisponde
-        console.log("Qui in authenticate 2");
-        callback(null, null);
+        console.log("La password non corrisponde");
+        return null;
       }
     } else {
-      // L'utente non è stato trovato con l'email specificata
-      console.log("Qui in authenticate 3...");
-      callback(null, null);
+      console.log("L'utente non è stato trovato con l'email specificata");
+      return null;
     }
   } catch (error) {
     console.error('Errore durante l\'autenticazione:', error);
-    callback(error, null);
+    throw error;
+  }
+};
+
+const updateConditions = async (userID, role, conditions) => {
+  try {
+    const user = await getUserById(userID, role);
+
+    if (user) {
+      if (!checkUserPermissions(user, userID, role)) {
+        throw { message: 'Accesso non autorizzato' };
+      }
+
+      const updatedUser = { ...user, Conditions: conditions };
+      const updatedUserData = await updateUser(updatedUser, userID, role);
+      return { updatedUserData: updatedUserData };
+    } else {
+      console.log("L'utente non è stato trovato con l'ID specificato");
+      return null;
+    }
+  } catch (error) {
+    console.error('Errore durante l\'aggiornamento delle condizioni:', error);
+    throw error;
   }
 };
 
@@ -290,4 +283,5 @@ module.exports = {
   deleteUser,
   authenticateUser,
   getUserById,
+  updateConditions
 };
